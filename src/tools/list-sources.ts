@@ -17,60 +17,52 @@ interface SourceEntry {
 
 const FALLBACK_SOURCES: SourceEntry[] = [
   {
-    id: 'BIO2',
-    authority: 'Nationaal Cyber Security Centrum (NCSC)',
-    name: 'Baseline Informatiebeveiliging Overheid 2.0',
-    retrieval_method: 'Static download (PDF/HTML)',
-    license: 'CC BY 4.0',
-    url: 'https://bio-overheid.nl',
+    id: 'NCSC-CE',
+    authority: 'National Cyber Security Centre (NCSC-UK)',
+    name: 'Cyber Essentials',
+    retrieval_method: 'Manual extraction (HTML)',
+    license: 'Open Government Licence v3.0',
+    url: 'https://www.ncsc.gov.uk/cyberessentials/overview',
   },
   {
-    id: 'DNB',
-    authority: 'De Nederlandsche Bank (DNB)',
-    name: 'Good Practice Informatiebeveiliging',
-    retrieval_method: 'Static download (PDF)',
-    license: 'Public document',
-    url: 'https://www.dnb.nl',
+    id: 'NCSC-CAF',
+    authority: 'National Cyber Security Centre (NCSC-UK)',
+    name: 'Cyber Assessment Framework (CAF) v3.2',
+    retrieval_method: 'Manual extraction (HTML)',
+    license: 'Open Government Licence v3.0',
+    url: 'https://www.ncsc.gov.uk/collection/caf',
   },
   {
-    id: 'NEN',
-    authority: 'NEN (Nederlands Normalisatie-instituut)',
-    name: 'NEN 7510 / NEN-ISO/IEC 27001',
-    retrieval_method: 'Licensed extract (public summaries)',
-    license: 'NEN license (paid standard)',
-    url: 'https://www.nen.nl',
+    id: 'NCSC-Cloud',
+    authority: 'National Cyber Security Centre (NCSC-UK)',
+    name: 'Cloud Security Principles',
+    retrieval_method: 'Manual extraction (HTML)',
+    license: 'Open Government Licence v3.0',
+    url: 'https://www.ncsc.gov.uk/collection/cloud/the-cloud-security-principles',
   },
   {
-    id: 'NCSC-NL',
-    authority: 'Nationaal Cyber Security Centrum',
-    name: 'NCSC-NL Security Guidelines',
-    retrieval_method: 'GitHub / static download',
-    license: 'CC BY 4.0',
-    url: 'https://github.com/NCSC-NL',
+    id: 'NCSC-10Steps',
+    authority: 'National Cyber Security Centre (NCSC-UK)',
+    name: '10 Steps to Cyber Security',
+    retrieval_method: 'Manual extraction (HTML)',
+    license: 'Open Government Licence v3.0',
+    url: 'https://www.ncsc.gov.uk/collection/10-steps',
   },
   {
-    id: 'Logius',
-    authority: 'Logius',
-    name: 'DigiD / BRP / eHerkenning security requirements',
-    retrieval_method: 'Static download (HTML/PDF)',
-    license: 'Public document',
-    url: 'https://logius.nl',
+    id: 'NHS-DSPT',
+    authority: 'NHS Digital / DHSC',
+    name: 'Data Security and Protection Toolkit (DSPT)',
+    retrieval_method: 'Manual extraction (HTML)',
+    license: 'Open Government Licence v3.0',
+    url: 'https://www.dsptoolkit.nhs.uk/',
   },
   {
-    id: 'IND',
-    authority: 'Inspectie JenV / IND',
-    name: 'IND informatiebeveiliging requirements',
-    retrieval_method: 'Static download (PDF)',
-    license: 'Public document',
-    url: 'https://ind.nl',
-  },
-  {
-    id: 'ENISA',
-    authority: 'European Union Agency for Cybersecurity (ENISA)',
-    name: 'ENISA Good Practices / NIS2 guidance',
-    retrieval_method: 'Static download (PDF/HTML)',
-    license: 'CC BY 4.0',
-    url: 'https://www.enisa.europa.eu',
+    id: 'NCSC-Board',
+    authority: 'National Cyber Security Centre (NCSC-UK)',
+    name: 'Board Toolkit',
+    retrieval_method: 'Manual extraction (HTML)',
+    license: 'Open Government Licence v3.0',
+    url: 'https://www.ncsc.gov.uk/collection/board-toolkit',
   },
 ];
 
@@ -80,12 +72,7 @@ export function handleListSources() {
   const sourcesPath = join(__dirname, '..', '..', 'sources.yml');
   if (existsSync(sourcesPath)) {
     try {
-      // Parse simple YAML list — avoid a YAML dependency by using basic parsing
-      // Full YAML parsing would require a dependency; for now use fallback if file exists but let it override
       const raw = readFileSync(sourcesPath, 'utf-8');
-      // If the file exists, it's used as a signal that sources were customised.
-      // A full YAML parser is not available without adding a dependency, so we
-      // use the fallback list but note it was found.
       void raw; // file read but not parsed without yaml dep
     } catch {
       // Ignore read errors — use fallback
@@ -97,7 +84,7 @@ export function handleListSources() {
   lines.push('## Data Sources');
   lines.push('');
   lines.push(
-    'This MCP server aggregates Dutch and EU cybersecurity standards from the following authoritative sources:'
+    'This MCP server aggregates UK cybersecurity standards from the following authoritative sources:'
   );
   lines.push('');
   lines.push('| ID | Authority | Standard / Document | Retrieval method | License |');
@@ -112,7 +99,7 @@ export function handleListSources() {
   lines.push(`**Total sources:** ${sources.length}`);
   lines.push('');
   lines.push(
-    '> All data is extracted from public or licensed authoritative documents. ' +
+    '> All data is extracted from authoritative UK government publications. ' +
     'This tool is a reference aid — verify critical compliance decisions against the originals.'
   );
 

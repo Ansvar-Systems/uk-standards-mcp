@@ -1,46 +1,46 @@
 [
   {
-    "id": "get-bio2-control",
+    "id": "get-caf-control",
     "tool": "get_control",
-    "args": { "control_id": "bio2:5.01.01" },
+    "args": { "control_id": "ncsc-caf:A1.a" },
     "assertions": [
-      { "type": "contains", "value": "Policies for information security" },
+      { "type": "contains", "value": "Board direction" },
       { "type": "has_meta" }
     ]
   },
   {
-    "id": "get-dnb-control",
+    "id": "get-ce-control",
     "tool": "get_control",
-    "args": { "control_id": "dnb-gpib-2023:GPIB-01" },
+    "args": { "control_id": "ncsc-ce:1" },
     "assertions": [
-      { "type": "contains", "value": "Informatiebeveiligingsbeleid" },
+      { "type": "contains", "value": "Firewalls" },
       { "type": "has_meta" }
     ]
   },
   {
-    "id": "get-nen7510-control",
+    "id": "get-dspt-control",
     "tool": "get_control",
-    "args": { "control_id": "nen-7510-2017:12.4.1" },
+    "args": { "control_id": "nhs-dspt:1" },
     "assertions": [
-      { "type": "contains", "value": "Gebeurtenissen registreren" },
+      { "type": "contains", "value": "Personal Confidential Data" },
       { "type": "has_meta" }
     ]
   },
   {
-    "id": "search-dutch-term",
+    "id": "search-access-control",
     "tool": "search_controls",
-    "args": { "query": "informatiebeveiliging" },
+    "args": { "query": "access control" },
     "assertions": [
-      { "type": "contains", "value": "bio2" },
+      { "type": "contains", "value": "ncsc-" },
       { "type": "has_meta" }
     ]
   },
   {
-    "id": "search-english-monitoring",
+    "id": "search-monitoring",
     "tool": "search_controls",
     "args": { "query": "monitoring" },
     "assertions": [
-      { "type": "contains", "value": "bio2" },
+      { "type": "contains", "value": "ncsc-caf" },
       { "type": "has_meta" }
     ]
   },
@@ -49,7 +49,7 @@
     "tool": "get_iso_mapping",
     "args": { "iso_control": "5.1" },
     "assertions": [
-      { "type": "contains", "value": "bio2" },
+      { "type": "contains", "value": "ncsc-caf" },
       { "type": "has_meta" }
     ]
   },
@@ -58,7 +58,7 @@
     "tool": "search_by_sector",
     "args": { "sector": "healthcare" },
     "assertions": [
-      { "type": "contains", "value": "nen-7510" },
+      { "type": "contains", "value": "nhs-dspt" },
       { "type": "has_meta" }
     ]
   },
@@ -67,36 +67,37 @@
     "tool": "list_frameworks",
     "args": {},
     "assertions": [
-      { "type": "contains", "value": "bio2" },
-      { "type": "contains", "value": "nen-7510" },
+      { "type": "contains", "value": "ncsc-caf" },
+      { "type": "contains", "value": "ncsc-ce" },
+      { "type": "contains", "value": "6 framework" },
       { "type": "has_meta" }
     ]
   },
   {
-    "id": "list-bio2-controls",
+    "id": "list-caf-controls",
     "tool": "list_controls",
-    "args": { "framework_id": "bio2" },
+    "args": { "framework_id": "ncsc-caf" },
     "assertions": [
-      { "type": "contains", "value": "5.01.01" },
+      { "type": "contains", "value": "A1.a" },
       { "type": "has_meta" }
     ]
   },
   {
-    "id": "get-framework-bio2",
+    "id": "get-framework-caf",
     "tool": "get_framework",
-    "args": { "framework_id": "bio2" },
+    "args": { "framework_id": "ncsc-caf" },
     "assertions": [
-      { "type": "contains", "value": "BIO" },
+      { "type": "contains", "value": "Cyber Assessment Framework" },
       { "type": "has_meta" }
     ]
   },
   {
-    "id": "compare-bio2-dnb",
+    "id": "compare-caf-ce",
     "tool": "compare_controls",
-    "args": { "query": "informatiebeveiliging", "framework_ids": ["bio2", "dnb-gpib-2023"] },
+    "args": { "query": "access control", "framework_ids": ["ncsc-caf", "ncsc-ce"] },
     "assertions": [
-      { "type": "contains", "value": "bio2" },
-      { "type": "contains", "value": "dnb-gpib-2023" },
+      { "type": "contains", "value": "ncsc-caf" },
+      { "type": "contains", "value": "ncsc-ce" },
       { "type": "has_meta" }
     ]
   },
@@ -112,7 +113,7 @@
   {
     "id": "negative-unknown-control",
     "tool": "get_control",
-    "args": { "control_id": "bio2:999.999" },
+    "args": { "control_id": "ncsc-caf:Z99.z" },
     "assertions": [
       { "type": "is_error" },
       { "type": "error_type", "value": "NO_MATCH" },
@@ -144,7 +145,7 @@
     "tool": "about",
     "args": {},
     "assertions": [
-      { "type": "contains", "value": "Dutch Standards MCP" },
+      { "type": "contains", "value": "UK Standards MCP" },
       { "type": "has_meta" }
     ]
   },

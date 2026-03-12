@@ -1,8 +1,8 @@
-# Coverage — Dutch Standards MCP
+# Coverage -- UK Standards MCP
 
 > Last verified: 2026-03-12 | Database version: 0.1.0
 
-This document declares exactly what data the Dutch Standards MCP contains, what it does not contain, and the limitations of each source. It is the contract with users.
+This document declares exactly what data the UK Standards MCP contains, what it does not contain, and the limitations of each source. It is the contract with users.
 
 ---
 
@@ -10,19 +10,14 @@ This document declares exactly what data the Dutch Standards MCP contains, what 
 
 | Source | Authority | Items | Version / Date | Completeness | Refresh |
 |--------|-----------|-------|----------------|-------------|---------|
-| BIO2 (Baseline Informatiebeveiliging Overheid) | CIP/BZK | ~93 controls | 2.0 (2024-01-01) | Full | Annual |
-| DNB Good Practice Informatiebeveiliging 2023 | De Nederlandsche Bank | ~58 controls | 2023 | Full | Annual |
-| NEN 7510:2017 / NEN 7512:2022 / NEN 7513:2023 | NEN | ~200 requirements | 7510:2017, 7512:2022, 7513:2023 | Partial (see note) | 5-year cycle |
-| NCSC-NL ICT Security Guidelines for Web Applications | NCSC-NL | ~200 requirements | 2023 | Full | Annual |
-| DigiD ICT Security Assessment Normenkader 3.0 | Logius | 21 norms | 3.0 (2023) | Full | Annual |
-| NCSC-NL Security Guidelines for TLS 2.1 | NCSC-NL | ~50 recommendations | 2.1 (2021) | Full | Annual |
-| Logius NLGov REST API Design Rules | Logius | ~80 rules | 2.0 (2024-01-01) | Full | Monthly |
+| NCSC Cyber Essentials (Willow) | NCSC-UK | 16 controls | Willow (2024) | Full | Annual |
+| NCSC Cyber Assessment Framework (CAF) | NCSC-UK | 36 controls | 3.2 (2024) | Full | Annual |
+| NCSC Cloud Security Principles | NCSC-UK | 14 principles | 2024 | Full | Annual |
+| NCSC 10 Steps to Cyber Security | NCSC-UK | 23 controls | 2021 | Full | Annual |
+| NHS Data Security and Protection Toolkit (DSPT) | NHS Digital / DHSC | 30 assertions | 2024-25 | Full | Annual |
+| NCSC Board Toolkit | NCSC-UK | 12 controls | 2023 | Full | Annual |
 
-**Total:** 11 tools, 543 controls/requirements, database built from 9 authoritative Dutch sources.
-
-### NEN 7510 / 7512 / 7513 Coverage Note
-
-NEN standards are paid publications. The database contains control identifiers, titles, and category structures extracted from the publicly available previews and summaries on NEN Connect. Full normative text (detailed requirements, measurement criteria) is not included because it is subject to NEN's commercial license. Organizations that need the full text must obtain a NEN license directly.
+**Total:** 11 tools, 131 controls/requirements, database built from 6 authoritative UK sources.
 
 ---
 
@@ -30,30 +25,26 @@ NEN standards are paid publications. The database contains control identifiers, 
 
 | Gap | Reason | Planned? |
 |-----|--------|----------|
-| TIBER-NL (Threat Intelligence Based Ethical Red-Teaming) | DNB framework for financial sector red-team testing — methodology document, not a control catalog | No |
-| VIR-BI (Voorschrift Informatiebeveiliging Rijksdienst Bijzondere Informatie) | Covers classified information handling (state secrets) — not publicly available | No |
-| ENSIA (Eenduidige Normatiek Single Information Audit) | Audit framework for municipalities, not a control standard itself | No |
-| Cyberbeveiligingswet (NIS2 implementation) | Dutch NIS2 transposition law — not yet in force as of database build date (2026-03-12) | Yes — planned once law enters force |
-| Wbni (Wet beveiliging netwerk- en informatiesystemen) | The predecessor NIS1 transposition — superseded by NIS2 implementation | No |
-| WDO (Wet digitale overheid) | Dutch Digital Government Act — sets access and identity requirements, not a security control framework | No |
-| BRP (Basisregistratie Personen) security requirements | Logius BRP requirements — separate from DigiD Normenkader | Yes — v0.2 |
-| eHerkenning security requirements | Logius eHerkenning requirements — separate procurement process | Yes — v0.2 |
-| NCTV sector security standards (vital infrastructure) | Ministry of Justice sector-specific standards — not publicly consolidated | No |
-| ISO/IEC 27001:2022 (full standard) | Commercial ISO standard — reference mappings included via `iso_mapping` field, full text excluded | No |
-| NEN-EN-ISO/IEC 27001:2023 (Dutch adoption) | Dutch NEN adoption of ISO 27001:2023 — commercial license | No |
-| CIS Controls v8 | International framework — out of scope for Dutch-specific MCP | No |
+| NCSC CYOD / BYOD Guidance | Device management guidance -- operational advice, not a control framework | No |
+| NCSC Secure Design Principles | Architecture guidance -- not structured as auditable controls | No |
+| NCSC Supply Chain Security Guidance | Supply chain guidance -- operational advice, not structured controls | No |
+| Cyber Governance Code of Practice | Published 2025 -- pending assessment for inclusion | Yes -- v0.2 |
+| NIS Regulations 2018 (UK NIS) | Regulatory framework implemented via CAF -- CAF controls are included | No |
+| ISO/IEC 27001:2022 (full standard) | Commercial ISO standard -- reference mappings included via `iso_mapping` field, full text excluded | No |
+| CIS Controls v8 | International framework -- out of scope for UK-specific MCP | No |
+| PCI DSS v4.0 | International payment standard -- out of scope for UK government focus | No |
+| NIST Cybersecurity Framework | US framework -- out of scope for UK-specific MCP | No |
 
 ---
 
 ## Limitations
 
-- **NEN full text excluded.** NEN 7510, 7512, and 7513 are commercial standards. Only control identifiers, titles, and category structures are included. Use `get_control` to retrieve what's available; implementation guidance fields may be empty for NEN controls.
-- **ISO mapping is partial.** Not all controls have `iso_mapping` populated. BIO2 has the most complete ISO 27002:2022 mapping; other frameworks have varying coverage. `get_iso_mapping` only returns controls with an explicit mapping.
 - **Snapshot data, not live.** The database is a point-in-time extract. Standards may be updated between database rebuilds. The `check_data_freshness` tool reports the last-fetched date for each source.
-- **Dutch as primary language.** All controls have Dutch titles and descriptions. English translations are available for BIO2, DNB, NCSC-NL TLS, and Logius API Design Rules. NEN 7510/7512/7513 and DigiD Normenkader are Dutch-only in this database.
-- **No case law or guidance letters.** The database contains normative controls only, not interpretive guidance, enforcement decisions, or sector supervisor letters.
+- **ISO mapping is partial.** Not all controls have `iso_mapping` populated. NCSC CAF has the most complete ISO 27002 mapping; other frameworks have varying coverage. `get_iso_mapping` only returns controls with an explicit mapping.
+- **English only.** All controls have English titles and descriptions. The `title_nl` field mirrors the English title (no Dutch translations).
+- **No case law or enforcement decisions.** The database contains normative controls only, not ICO enforcement notices, tribunal decisions, or regulator guidance letters.
 - **Sector metadata may be incomplete.** Frameworks are tagged with `scope_sectors` values during ingestion. If a framework's sector coverage is broader than what's tagged, `search_by_sector` may not surface it.
-- **Not a legal opinion.** Compliance with these standards is not verified by this tool. The tool provides structured access to control text — whether a specific system or process meets a control is a judgment that requires qualified assessment.
+- **Not a legal opinion.** Compliance with these standards is not verified by this tool. The tool provides structured access to control text -- whether a specific system or process meets a control is a judgment that requires qualified assessment.
 
 ---
 
@@ -61,13 +52,12 @@ NEN standards are paid publications. The database contains control identifiers, 
 
 | Source | Refresh Schedule | Last Refresh | Next Expected |
 |--------|-----------------|-------------|---------------|
-| BIO2 | Annual | 2026-03-12 | 2027-01-01 |
-| DNB Good Practice IB | Annual | 2026-03-12 | 2027-01-01 |
-| NEN 7510/7512/7513 | 5-year cycle | 2026-03-12 | 2028-01-01 |
-| NCSC-NL Web App Guidelines | Annual | 2026-03-12 | 2027-01-01 |
-| DigiD Normenkader | Annual | 2026-03-12 | 2027-01-01 |
-| NCSC-NL TLS Guidelines | Annual | 2026-03-12 | 2027-01-01 |
-| Logius API Design Rules | Monthly | 2026-03-12 | 2026-04-12 |
+| NCSC Cyber Essentials | Annual | 2026-03-12 | 2027-01-01 |
+| NCSC CAF | Annual | 2026-03-12 | 2027-01-01 |
+| NCSC Cloud Security Principles | Annual | 2026-03-12 | 2027-01-01 |
+| NCSC 10 Steps | Annual | 2026-03-12 | 2027-01-01 |
+| NHS DSPT | Annual | 2026-03-12 | 2027-01-01 |
+| NCSC Board Toolkit | Annual | 2026-03-12 | 2027-01-01 |
 
 To check current freshness status programmatically, call the `check_data_freshness` tool.
 
@@ -77,45 +67,44 @@ The ingestion pipeline (`ingest.yml`) runs on the most frequent source schedule.
 
 ## Regulatory Mapping
 
-This table maps Dutch regulations and laws to the frameworks in this MCP that implement or operationalize them.
+This table maps UK regulations and laws to the frameworks in this MCP that implement or operationalize them.
 
 | Regulation / Law | Relevant Frameworks | Notes |
 |-----------------|---------------------|-------|
-| Wet beveiliging netwerk- en informatiesystemen (Wbni) | BIO2, NEN 7510 | Wbni applies to operators of essential services and digital service providers |
-| Algemene Verordening Gegevensbescherming (AVG / GDPR) | BIO2, NEN 7510, NEN 7512 | Security of personal data — Article 32 technical measures |
-| Wet op de geneeskundige behandelingsovereenkomst (WGBO) | NEN 7510, NEN 7512, NEN 7513 | Electronic health records and patient data security |
-| Baseline Informatiebeveiliging Overheid (BIO2) | BIO2 | Directly mandatory for all Dutch government bodies (Rijksoverheid, provinces, municipalities, water boards) |
-| DigiD access requirements | DigiD Normenkader | Mandatory for all organizations connecting to DigiD |
-| Government REST API requirements | Logius API Design Rules | Mandatory for Dutch government REST APIs |
-| DNB supervisory requirements (financial sector) | DNB Good Practice IB | Applied by DNB in ongoing supervision of banks, insurers, payment institutions |
+| Network and Information Systems Regulations 2018 (UK NIS) | NCSC CAF | CAF is the primary assessment framework for operators of essential services under NIS |
+| UK GDPR / Data Protection Act 2018 | NHS DSPT, NCSC Cyber Essentials | Security of personal data -- Article 32 equivalent technical measures |
+| Health and Social Care Act 2012 | NHS DSPT | Sets data security requirements for health and social care organisations |
+| Computer Misuse Act 1990 | NCSC 10 Steps, NCSC Cyber Essentials | Baseline security measures to prevent unauthorized access |
+| Telecommunications (Security) Act 2021 | NCSC CAF | Applies CAF-based assessment to telecoms providers |
+| Financial Services and Markets Act 2000 | NCSC CAF, NCSC Board Toolkit | FCA/PRA regulated firms use CAF for operational resilience assessment |
 
 ---
 
-## Sector-Specific Gaps
+## Sector-Specific Coverage
 
-### Government (Rijksoverheid, provinces, municipalities)
+### Government (Central and Local)
 
-- **Included:** BIO2 (full), Logius API Design Rules, DigiD Normenkader
-- **Gap:** ENSIA self-assessment framework for municipalities not included
-- **Gap:** VIR-BI (classified information) not included — out of scope (state secrets regime)
+- **Included:** NCSC Cyber Essentials (mandatory for government suppliers), NCSC CAF (critical national infrastructure), NCSC 10 Steps, NCSC Board Toolkit, NCSC Cloud Security Principles
+- **Gap:** Government Functional Standard GovS 007 (Security) not included -- sets policy rather than technical controls
 
-### Healthcare
+### Healthcare (NHS and Social Care)
 
-- **Included:** NEN 7510, NEN 7512, NEN 7513 (control identifiers and titles)
-- **Gap:** Full NEN normative text excluded (commercial license)
-- **Gap:** NICTIZ implementation guidelines not included
-- **Gap:** IGJ (healthcare inspectorate) sector-specific security requirements not included
+- **Included:** NHS DSPT (30 assertions across 10 NDG standards), plus all NCSC frameworks
+- **Gap:** NHS Secure Boundary not included -- operational implementation of Cyber Essentials for NHS
+- **Gap:** DCB0129 / DCB0160 clinical risk management standards not included -- clinical safety, not cybersecurity
+
+### Energy and Utilities
+
+- **Included:** NCSC CAF (primary framework for OES under NIS Regulations)
+- **Gap:** Ofgem Cyber Resilience guidelines not included -- regulatory interpretation of CAF for energy sector
 
 ### Financial Services
 
-- **Included:** DNB Good Practice Informatiebeveiliging 2023
-- **Gap:** AFM cybersecurity guidance not included
-- **Gap:** TIBER-NL red-team methodology not included
-- **Gap:** EBA ICT Risk guidelines (EU-level) not included — see EU Regulations MCP
+- **Included:** NCSC CAF, NCSC Board Toolkit (governance guidance for boards)
+- **Gap:** FCA/PRA operational resilience requirements not included -- regulatory framework, not technical controls
+- **Gap:** CBEST threat intelligence-led penetration testing -- methodology, not control framework
 
-### Critical Infrastructure (Energy, Water, Telecom, Transport)
+### Transport and Digital Infrastructure
 
-- **Included:** BIO2 (for government-owned infrastructure)
-- **Gap:** NCTV sector security standards not included (not publicly consolidated)
-- **Gap:** NEN-EN 50600 (data center standards) not included
-- **Gap:** Sector-specific Wbni implementation guides not included
+- **Included:** NCSC CAF (transport and digital infrastructure are NIS-regulated sectors)
+- **Gap:** DfT Cyber Security Toolkit for Transport not included -- sector-specific guidance

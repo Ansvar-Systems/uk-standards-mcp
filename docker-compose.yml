@@ -1,6 +1,6 @@
 version: "3.8"
 services:
-  standards-nl:
+  uk-standards:
     build: .
     ports:
       - "3000:3000"

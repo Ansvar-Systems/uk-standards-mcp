@@ -3,8 +3,8 @@ import { describe, it, expect } from 'vitest';
 import { handleGetControl } from '../../src/tools/get-control.js';
 
 describe('handleGetControl', () => {
-  it('returns full control detail for bio2:5.01.01', () => {
-    const result = handleGetControl({ control_id: 'bio2:5.01.01' });
+  it('returns full control detail for ncsc-caf:A1.a', () => {
+    const result = handleGetControl({ control_id: 'ncsc-caf:A1.a' });
 
     expect(result.isError).toBeFalsy();
     expect(result._meta).toBeDefined();
@@ -12,32 +12,29 @@ describe('handleGetControl', () => {
     const text = result.content[0].text;
 
     // Heading: control number
-    expect(text).toContain('5.01.01');
+    expect(text).toContain('A1.a');
 
-    // English title present
-    expect(text).toContain('Policies for information security');
+    // Title
+    expect(text).toContain('Board direction');
 
     // Framework name
-    expect(text).toContain('Baseline Informatiebeveiliging Overheid');
+    expect(text).toContain('Cyber Assessment Framework');
 
     // Category
-    expect(text).toContain('Organizational controls');
-
-    // Level
-    expect(text).toContain('Basishygiëne');
+    expect(text).toContain('Managing Security Risk');
 
     // ISO mapping
     expect(text).toContain('5.1');
 
-    // Dutch description present
-    expect(text).toContain('informatiebeveiliging');
+    // Description
+    expect(text).toContain('board-level');
 
     // Source URL
-    expect(text).toContain('minbzk.github.io');
+    expect(text).toContain('ncsc.gov.uk');
   });
 
-  it('returns NO_MATCH for bio2:999.999', () => {
-    const result = handleGetControl({ control_id: 'bio2:999.999' });
+  it('returns NO_MATCH for ncsc-caf:Z99.z', () => {
+    const result = handleGetControl({ control_id: 'ncsc-caf:Z99.z' });
 
     expect(result.isError).toBe(true);
     expect(result._error_type).toBe('NO_MATCH');

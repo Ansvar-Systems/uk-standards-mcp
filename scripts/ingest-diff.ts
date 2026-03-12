@@ -36,8 +36,8 @@ function loadPreviousHashes(): HashMap {
 }
 
 async function main(): Promise<void> {
-  console.log('Ingest Diff — Dutch Standards MCP');
-  console.log('===================================');
+  console.log('Ingest Diff — UK Standards MCP');
+  console.log('================================');
 
   mkdirSync(DATA_DIR, { recursive: true });
 

@@ -3,7 +3,7 @@ import { describe, it, expect } from 'vitest';
 import { handleGetIsoMapping } from '../../src/tools/get-iso-mapping.js';
 
 describe('handleGetIsoMapping', () => {
-  it('finds Dutch controls mapped to ISO 5.1', () => {
+  it('finds UK controls mapped to ISO 5.1', () => {
     const result = handleGetIsoMapping({ iso_control: '5.1' });
 
     expect(result.isError).toBeFalsy();
@@ -11,34 +11,27 @@ describe('handleGetIsoMapping', () => {
 
     const text = result.content[0].text;
 
-    // bio2 controls with iso_mapping="5.1" must appear
-    expect(text).toContain('bio2:5.01.01');
+    // ncsc-caf controls with iso_mapping="5.1" must appear
+    expect(text).toContain('ncsc-caf:A1.a');
 
     // Should show the ISO control in the heading
     expect(text).toContain('5.1');
 
     // Markdown table structure
     expect(text).toContain('| ID |');
-    expect(text).toContain('|');
   });
 
-  it('finds controls mapped to ISO 8.16', () => {
-    const result = handleGetIsoMapping({ iso_control: '8.16' });
+  it('finds controls mapped to ISO A.12.6.1', () => {
+    const result = handleGetIsoMapping({ iso_control: 'A.12.6.1' });
 
     expect(result.isError).toBeFalsy();
     expect(result._meta).toBeDefined();
 
     const text = result.content[0].text;
 
-    // bio2 controls with iso_mapping="8.16" must appear
-    expect(text).toContain('bio2:8.16');
-
-    // Should show the ISO control in the heading
-    expect(text).toContain('8.16');
-
-    // Markdown table structure
+    // Multiple frameworks should have this mapping
+    expect(text).toContain('A.12.6.1');
     expect(text).toContain('| ID |');
-    expect(text).toContain('|');
   });
 
   it('returns NO_MATCH for unmapped ISO control', () => {

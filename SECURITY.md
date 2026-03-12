@@ -12,4 +12,4 @@ We aim to acknowledge reports within 48 hours and provide a fix within 7 days fo
 
 ## Scope
 
-This policy covers the `dutch-standards-mcp` package and its dependencies.
+This policy covers the `uk-standards-mcp` package and its dependencies.

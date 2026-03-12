@@ -97,8 +97,8 @@ function formatStatus(status: FreshnessStatus): string {
 }
 
 async function main(): Promise<void> {
-  console.log('Freshness Check — Dutch Standards MCP');
-  console.log('=======================================');
+  console.log('Freshness Check — UK Standards MCP');
+  console.log('====================================');
 
   mkdirSync(DATA_DIR, { recursive: true });
 

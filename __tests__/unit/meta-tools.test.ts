@@ -8,20 +8,20 @@ describe('meta-tools', () => {
   it('about returns server metadata with _meta', () => {
     const result = handleAbout();
     const text = result.content[0].text;
-    expect(text).toContain('Dutch Standards MCP');
+    expect(text).toContain('UK Standards MCP');
     expect(text).toContain('domain_intelligence');
     expect(text).toContain('Ansvar MCP Network');
     expect(result._meta).toBeDefined();
   });
 
-  it('list_sources returns all 7 sources', () => {
+  it('list_sources returns all 6 sources', () => {
     const result = handleListSources();
     const text = result.content[0].text;
-    expect(text).toContain('BIO2');
-    expect(text).toContain('DNB');
-    expect(text).toContain('NEN');
-    expect(text).toContain('NCSC-NL');
-    expect(text).toContain('Logius');
+    expect(text).toContain('NCSC-CE');
+    expect(text).toContain('NCSC-CAF');
+    expect(text).toContain('NCSC-Cloud');
+    expect(text).toContain('NHS-DSPT');
+    expect(text).toContain('NCSC-Board');
     expect(result._meta).toBeDefined();
   });
 

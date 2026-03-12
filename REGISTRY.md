@@ -2,12 +2,12 @@
 
 ## npm
 
-Dutch government cybersecurity standards MCP -- BIO2, DNB Good Practice IB, NEN 7510/7512/7513, NCSC-NL guidelines, DigiD Normenkader, Logius API Design Rules. Part of the Ansvar MCP Network (ansvar.ai/mcp).
+UK government cybersecurity standards MCP -- NCSC Cyber Essentials, CAF, Cloud Security Principles, 10 Steps to Cyber Security, NHS DSPT, Board Toolkit. Part of the Ansvar MCP Network (ansvar.ai/mcp).
 
 ## Smithery
 
-Access Dutch government cybersecurity standards including BIO2, DNB Good Practice, NEN 7510 (healthcare), NCSC-NL guidelines, DigiD, and Logius API Design Rules. Bilingual (Dutch + English) with FTS search, ISO 27002 cross-references, and sector-based filtering.
+Access UK government cybersecurity standards including NCSC Cyber Essentials, Cyber Assessment Framework (CAF), Cloud Security Principles, 10 Steps to Cyber Security, NHS DSPT, and Board Toolkit. FTS search, ISO 27002 cross-references, and sector-based filtering.
 
 ## Glama
 
-Dutch government cybersecurity standards MCP covering 7 frameworks and 700+ controls. Search by keyword, sector, or ISO mapping. Bilingual Dutch/English support.
+UK government cybersecurity standards MCP covering 6 frameworks and 131+ controls. Search by keyword, sector, or ISO mapping. Includes NCSC and NHS authoritative sources.

@@ -26,15 +26,12 @@ const SOURCES_YML = join(PROJECT_ROOT, 'sources.yml');
 
 // Map from framework DB id -> source id used in coverage.json
 const FRAMEWORK_TO_SOURCE: Record<string, string> = {
-  'bio2': 'bio2',
-  'dnb-gpib-2023': 'dnb-gpib',
-  'nen-7510-2017': 'nen-7510',
-  'nen-7512-2022': 'nen-7512',
-  'nen-7513-2023': 'nen-7513',
-  'ncsc-web-2023': 'ncsc-web',
-  'digid-3.0': 'digid',
-  'ncsc-tls-2.1': 'ncsc-tls',
-  'logius-api': 'logius-api',
+  'ncsc-ce': 'ncsc-ce',
+  'ncsc-caf': 'ncsc-caf',
+  'ncsc-cloud': 'ncsc-cloud',
+  'ncsc-10steps': 'ncsc-10steps',
+  'nhs-dspt': 'nhs-dspt',
+  'ncsc-board': 'ncsc-board',
 };
 
 // Canonical source metadata — derived from sources.yml
@@ -65,25 +62,12 @@ function parseSourcesYml(content: string): SourceMeta[] {
 
     // Determine source id from name
     let id = 'unknown';
-    if (fullName.includes('BIO2')) id = 'bio2';
-    else if (fullName.includes('DNB')) id = 'dnb-gpib';
-    // NEN 7510/7512/7513 are a single entry in sources.yml covering all three
-    else if (fullName.includes('NEN 7510') || fullName.includes('NEN 7512') || fullName.includes('NEN 7513')) {
-      // Emit separate entries for each NEN standard
-      const nens = [
-        { id: 'nen-7510', nameSuffix: 'NEN 7510:2017' },
-        { id: 'nen-7512', nameSuffix: 'NEN 7512:2022' },
-        { id: 'nen-7513', nameSuffix: 'NEN 7513:2023' },
-      ];
-      for (const nen of nens) {
-        sources.push({ id: nen.id, name: nen.nameSuffix, update_frequency: freq, source_type: srcType });
-      }
-      continue;
-    }
-    else if (fullName.includes('Web Application') || fullName.includes('Web App')) id = 'ncsc-web';
-    else if (fullName.includes('DigiD')) id = 'digid';
-    else if (fullName.includes('TLS')) id = 'ncsc-tls';
-    else if (fullName.includes('Logius') || fullName.includes('API Design Rules')) id = 'logius-api';
+    if (fullName.includes('Cyber Essentials')) id = 'ncsc-ce';
+    else if (fullName.includes('CAF') || fullName.includes('Cyber Assessment Framework')) id = 'ncsc-caf';
+    else if (fullName.includes('Cloud Security')) id = 'ncsc-cloud';
+    else if (fullName.includes('10 Steps')) id = 'ncsc-10steps';
+    else if (fullName.includes('DSPT') || fullName.includes('Data Security')) id = 'nhs-dspt';
+    else if (fullName.includes('Board Toolkit')) id = 'ncsc-board';
 
     sources.push({ id, name: fullName, update_frequency: freq, source_type: srcType });
   }
@@ -129,8 +113,8 @@ function getLastChecked(extractedData: {
 }
 
 async function main(): Promise<void> {
-  console.log('Update Coverage — Dutch Standards MCP');
-  console.log('=======================================');
+  console.log('Update Coverage — UK Standards MCP');
+  console.log('====================================');
 
   mkdirSync(DATA_DIR, { recursive: true });
 
@@ -251,7 +235,7 @@ async function main(): Promise<void> {
   const generatedAt = new Date().toISOString().replace(/\.\d{3}Z$/, 'Z');
 
   const coverage = {
-    mcp_name: 'dutch-standards-mcp',
+    mcp_name: 'uk-standards-mcp',
     generated_at: generatedAt,
     summary: {
       frameworks: frameworkCount,
@@ -275,7 +259,7 @@ async function main(): Promise<void> {
 
     // Update the summary totals line
     const totalControls = coverageSources.reduce((sum, s) => sum + s.item_count, 0);
-    const newTotalLine = `**Total:** ${toolFiles.length} tools, ${totalControls} controls/requirements, database built from ${coverageSources.length} authoritative Dutch sources.`;
+    const newTotalLine = `**Total:** ${toolFiles.length} tools, ${totalControls} controls/requirements, database built from ${coverageSources.length} authoritative UK sources.`;
     mdContent = mdContent.replace(
       /\*\*Total:\*\*[^\n]+/,
       newTotalLine

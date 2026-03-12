@@ -3,7 +3,7 @@ import { describe, it, expect } from 'vitest';
 import { handleListFrameworks } from '../../src/tools/list-frameworks.js';
 
 describe('handleListFrameworks', () => {
-  it('returns a Markdown table containing all 9 frameworks with control counts', () => {
+  it('returns a Markdown table containing all 6 frameworks with control counts', () => {
     const result = handleListFrameworks();
 
     expect(result.isError).toBeFalsy();
@@ -12,32 +12,28 @@ describe('handleListFrameworks', () => {
     const text = result.content[0].text;
 
     // Core framework IDs present
-    expect(text).toContain('bio2');
-    expect(text).toContain('nen-7510-2017');
-    expect(text).toContain('dnb-gpib-2023');
+    expect(text).toContain('ncsc-caf');
+    expect(text).toContain('ncsc-ce');
+    expect(text).toContain('nhs-dspt');
+    expect(text).toContain('ncsc-cloud');
+    expect(text).toContain('ncsc-10steps');
+    expect(text).toContain('ncsc-board');
 
-    // Framework names present (real data)
-    expect(text).toContain('Baseline Informatiebeveiliging Overheid');
-    expect(text).toContain('NEN 7510');
-    expect(text).toContain('DNB Good Practice');
+    // Framework names present
+    expect(text).toContain('Cyber Assessment Framework');
+    expect(text).toContain('Cyber Essentials');
 
-    // Issuing bodies present (real data)
-    expect(text).toContain('Binnenlandse Zaken');
-    expect(text).toContain('De Nederlandsche Bank');
-
-    // bio2 row present
-    expect(text).toContain('| bio2 |');
+    // Issuing bodies present
+    expect(text).toContain('NCSC-UK');
 
     // Sectors present
     expect(text).toContain('government');
     expect(text).toContain('healthcare');
-    expect(text).toContain('finance');
 
     // Markdown table structure
     expect(text).toContain('| ID |');
-    expect(text).toContain('|');
 
-    // 9 frameworks
-    expect(text).toContain('9 frameworks');
+    // 6 frameworks
+    expect(text).toContain('6 frameworks');
   });
 });
