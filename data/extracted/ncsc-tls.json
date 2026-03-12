@@ -1,0 +1,119 @@
+{
+  "framework": {
+    "id": "ncsc-tls",
+    "name": "NCSC TLS Configuration Guidance",
+    "name_nl": "NCSC TLS Configuration Guidance",
+    "issuing_body": "National Cyber Security Centre (NCSC-UK)",
+    "version": "2024",
+    "effective_date": "2024-01-01",
+    "scope": "Recommended TLS configurations for external-facing and internal services, covering protocol versions, cipher suites, certificate management, and implementation practices",
+    "scope_sectors": [
+      "government",
+      "all"
+    ],
+    "structure_description": "Controls covering TLS protocol selection, cipher suite configuration, certificate management, and common implementation pitfalls",
+    "source_url": "https://www.ncsc.gov.uk/guidance/tls-external-facing-services",
+    "license": "Open Government Licence v3.0",
+    "language": "en"
+  },
+  "controls": [
+    {
+      "control_number": "1",
+      "title": "Use TLS 1.2 or TLS 1.3 only",
+      "title_nl": "Use TLS 1.2 or TLS 1.3 only",
+      "description": "Disable SSLv2, SSLv3, TLS 1.0, and TLS 1.1 on all services. Only TLS 1.2 and TLS 1.3 should be offered. TLS 1.3 is preferred where both endpoints support it, as it removes legacy insecure options and reduces handshake latency.",
+      "description_nl": "Disable SSLv2, SSLv3, TLS 1.0, and TLS 1.1 on all services. Only TLS 1.2 and TLS 1.3 should be offered. TLS 1.3 is preferred where both endpoints support it, as it removes legacy insecure options and reduces handshake latency.",
+      "category": "Protocol Configuration",
+      "subcategory": "Protocol versions",
+      "level": null,
+      "iso_mapping": "A.10.1.1",
+      "implementation_guidance": "Configure web servers, load balancers, and application services to offer only TLS 1.2 and TLS 1.3. Test with clients to verify compatibility. Plan migration of any legacy clients that require older protocols.",
+      "verification_guidance": "Scan all TLS endpoints. Verify only TLS 1.2 and 1.3 are offered. Confirm SSLv2/3, TLS 1.0, and TLS 1.1 are rejected.",
+      "source_url": "https://www.ncsc.gov.uk/guidance/tls-external-facing-services"
+    },
+    {
+      "control_number": "2",
+      "title": "Use recommended cipher suites",
+      "title_nl": "Use recommended cipher suites",
+      "description": "Configure cipher suites that provide forward secrecy and use authenticated encryption (AEAD). For TLS 1.2, prefer ECDHE key exchange with AES-GCM or ChaCha20-Poly1305. For TLS 1.3, all mandatory cipher suites are acceptable.",
+      "description_nl": "Configure cipher suites that provide forward secrecy and use authenticated encryption (AEAD). For TLS 1.2, prefer ECDHE key exchange with AES-GCM or ChaCha20-Poly1305. For TLS 1.3, all mandatory cipher suites are acceptable.",
+      "category": "Protocol Configuration",
+      "subcategory": "Cipher suites",
+      "level": null,
+      "iso_mapping": "A.10.1.1",
+      "implementation_guidance": "For TLS 1.2: enable ECDHE+AESGCM and ECDHE+CHACHA20 cipher suites. Disable CBC mode ciphers where possible. Disable RSA key exchange (no forward secrecy). For TLS 1.3: all standard cipher suites are acceptable.",
+      "verification_guidance": "Test cipher suite offerings with SSL/TLS scanning tools. Verify forward secrecy is provided. Confirm no weak ciphers are offered.",
+      "source_url": "https://www.ncsc.gov.uk/guidance/tls-external-facing-services"
+    },
+    {
+      "control_number": "3",
+      "title": "Use valid certificates from trusted CAs",
+      "title_nl": "Use valid certificates from trusted CAs",
+      "description": "Use certificates issued by trusted public Certificate Authorities. Certificates must be valid (not expired), match the domain name, and use strong key sizes (RSA 2048-bit minimum, ECDSA P-256 minimum).",
+      "description_nl": "Use certificates issued by trusted public Certificate Authorities. Certificates must be valid (not expired), match the domain name, and use strong key sizes (RSA 2048-bit minimum, ECDSA P-256 minimum).",
+      "category": "Certificate Management",
+      "subcategory": "Certificate validity",
+      "level": null,
+      "iso_mapping": "A.10.1.2",
+      "implementation_guidance": "Obtain certificates from trusted CAs (e.g., Lets Encrypt, DigiCert). Use automated certificate management (ACME protocol) to prevent expiry. Use RSA 2048-bit or ECDSA P-256 keys at minimum.",
+      "verification_guidance": "Scan for expired or soon-to-expire certificates. Verify certificate chain is complete. Check key sizes meet minimum requirements.",
+      "source_url": "https://www.ncsc.gov.uk/guidance/tls-external-facing-services"
+    },
+    {
+      "control_number": "4",
+      "title": "Implement HSTS (HTTP Strict Transport Security)",
+      "title_nl": "Implement HSTS (HTTP Strict Transport Security)",
+      "description": "Enable HSTS on all HTTPS services to instruct browsers to always connect via HTTPS. Set a long max-age (at least 1 year) and include subdomains. Consider HSTS preloading for public websites.",
+      "description_nl": "Enable HSTS on all HTTPS services to instruct browsers to always connect via HTTPS. Set a long max-age (at least 1 year) and include subdomains. Consider HSTS preloading for public websites.",
+      "category": "HTTP Security",
+      "subcategory": "HSTS",
+      "level": null,
+      "iso_mapping": "A.13.1.1",
+      "implementation_guidance": "Add Strict-Transport-Security header with max-age=31536000 (1 year) and includeSubDomains. Submit domains to the HSTS preload list. Ensure all resources are served over HTTPS before enabling.",
+      "verification_guidance": "Check for HSTS header on all HTTPS responses. Verify max-age is at least 1 year. Confirm preload status for public domains.",
+      "source_url": "https://www.ncsc.gov.uk/guidance/tls-external-facing-services"
+    },
+    {
+      "control_number": "5",
+      "title": "Disable TLS compression",
+      "title_nl": "Disable TLS compression",
+      "description": "TLS compression must be disabled to prevent CRIME-type attacks. Compression at the TLS layer can leak information about encrypted data through observable differences in compressed size.",
+      "description_nl": "TLS compression must be disabled to prevent CRIME-type attacks. Compression at the TLS layer can leak information about encrypted data through observable differences in compressed size.",
+      "category": "Protocol Configuration",
+      "subcategory": "Compression",
+      "level": null,
+      "iso_mapping": "A.10.1.1",
+      "implementation_guidance": "Disable TLS-level compression on all servers. Use HTTP-level compression (gzip, brotli) instead, which does not expose the same vulnerability.",
+      "verification_guidance": "Scan for TLS compression support. Verify it is disabled on all endpoints.",
+      "source_url": "https://www.ncsc.gov.uk/guidance/tls-external-facing-services"
+    },
+    {
+      "control_number": "6",
+      "title": "Configure certificate transparency",
+      "title_nl": "Configure certificate transparency",
+      "description": "Monitor Certificate Transparency (CT) logs for certificates issued for your domains. CT helps detect misissued or malicious certificates. Modern browsers require CT compliance for certificates to be trusted.",
+      "description_nl": "Monitor Certificate Transparency (CT) logs for certificates issued for your domains. CT helps detect misissued or malicious certificates. Modern browsers require CT compliance for certificates to be trusted.",
+      "category": "Certificate Management",
+      "subcategory": "Transparency monitoring",
+      "level": null,
+      "iso_mapping": "A.12.4.1",
+      "implementation_guidance": "Set up CT log monitoring for all owned domains. Use services like crt.sh or commercial CT monitoring. Investigate any unexpected certificate issuances. Ensure your CA issues CT-compliant certificates.",
+      "verification_guidance": "Verify CT monitoring is active. Review recent CT log entries for unexpected certificates.",
+      "source_url": "https://www.ncsc.gov.uk/guidance/tls-external-facing-services"
+    },
+    {
+      "control_number": "7",
+      "title": "Use OCSP stapling",
+      "title_nl": "Use OCSP stapling",
+      "description": "Enable OCSP (Online Certificate Status Protocol) stapling on web servers. OCSP stapling allows the server to provide certificate revocation status directly, improving performance and privacy compared to client-side OCSP lookups.",
+      "description_nl": "Enable OCSP (Online Certificate Status Protocol) stapling on web servers. OCSP stapling allows the server to provide certificate revocation status directly, improving performance and privacy compared to client-side OCSP lookups.",
+      "category": "Certificate Management",
+      "subcategory": "Revocation checking",
+      "level": null,
+      "iso_mapping": "A.10.1.2",
+      "implementation_guidance": "Enable OCSP stapling on all web servers. Verify the stapled response is valid and current. Configure fallback behaviour if OCSP responders are unavailable.",
+      "verification_guidance": "Test OCSP stapling on all endpoints. Verify stapled responses are present and valid.",
+      "source_url": "https://www.ncsc.gov.uk/guidance/tls-external-facing-services"
+    }
+  ]
+}

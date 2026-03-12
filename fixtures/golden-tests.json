@@ -69,7 +69,7 @@
     "assertions": [
       { "type": "contains", "value": "ncsc-caf" },
       { "type": "contains", "value": "ncsc-ce" },
-      { "type": "contains", "value": "6 framework" },
+      { "type": "contains", "value": "28 framework" },
       { "type": "has_meta" }
     ]
   },
@@ -155,6 +155,69 @@
     "args": {},
     "assertions": [
       { "type": "contains", "value": "Data Freshness Report" },
+      { "type": "has_meta" }
+    ]
+  },
+  {
+    "id": "get-zt-control",
+    "tool": "get_control",
+    "args": { "control_id": "ncsc-zt:1" },
+    "assertions": [
+      { "type": "contains", "value": "Know your architecture" },
+      { "type": "has_meta" }
+    ]
+  },
+  {
+    "id": "get-hmg-control",
+    "tool": "get_control",
+    "args": { "control_id": "hmg-mcss:1" },
+    "assertions": [
+      { "type": "contains", "value": "Identify and catalogue" },
+      { "type": "has_meta" }
+    ]
+  },
+  {
+    "id": "get-pra-control",
+    "tool": "get_control",
+    "args": { "control_id": "pra-opres:1" },
+    "assertions": [
+      { "type": "contains", "value": "important business services" },
+      { "type": "has_meta" }
+    ]
+  },
+  {
+    "id": "sector-finance",
+    "tool": "search_by_sector",
+    "args": { "sector": "finance" },
+    "assertions": [
+      { "type": "contains", "value": "pra-opres" },
+      { "type": "has_meta" }
+    ]
+  },
+  {
+    "id": "sector-defence",
+    "tool": "search_by_sector",
+    "args": { "sector": "defence" },
+    "assertions": [
+      { "type": "contains", "value": "mod-defstan" },
+      { "type": "has_meta" }
+    ]
+  },
+  {
+    "id": "get-framework-zt",
+    "tool": "get_framework",
+    "args": { "framework_id": "ncsc-zt" },
+    "assertions": [
+      { "type": "contains", "value": "Zero Trust" },
+      { "type": "has_meta" }
+    ]
+  },
+  {
+    "id": "search-zero-trust",
+    "tool": "search_controls",
+    "args": { "query": "zero trust" },
+    "assertions": [
+      { "type": "contains", "value": "ncsc-zt" },
       { "type": "has_meta" }
     ]
   }

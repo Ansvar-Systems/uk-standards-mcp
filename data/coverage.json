@@ -1,200 +1,248 @@
 {
-  "schema_version": "1.0",
-  "mcp_name": "UK Standards MCP",
-  "mcp_type": "domain_intelligence",
-  "coverage_date": "2026-03-12",
-  "database_version": "0.1.0",
+  "mcp_name": "uk-standards-mcp",
+  "generated_at": "2026-03-12T09:59:57Z",
+  "summary": {
+    "frameworks": 28,
+    "controls": 328,
+    "tools": 11
+  },
   "sources": [
     {
-      "id": "ncsc-ce",
-      "name": "NCSC Cyber Essentials",
-      "authority": "NCSC-UK",
-      "url": "https://www.ncsc.gov.uk/cyberessentials/overview",
-      "version": "Willow",
-      "item_count": 16,
-      "item_type": "control",
-      "last_refresh": "2026-03-12",
-      "refresh_frequency": "annual",
-      "completeness": "full",
-      "completeness_note": "All 5 technical controls with sub-requirements extracted"
+      "id": "fca-sysc",
+      "name": "FCA SYSC 13 Operational Risk",
+      "item_count": 7,
+      "last_checked": "2026-03-12",
+      "update_frequency": "annual",
+      "next_check_due": "2027-03-12"
     },
     {
-      "id": "ncsc-caf",
-      "name": "NCSC Cyber Assessment Framework (CAF)",
-      "authority": "NCSC-UK",
-      "url": "https://www.ncsc.gov.uk/collection/caf",
-      "version": "3.2",
-      "item_count": 36,
-      "item_type": "control",
-      "last_refresh": "2026-03-12",
-      "refresh_frequency": "annual",
-      "completeness": "full",
-      "completeness_note": "All 4 objectives, 14 principles, and contributing outcomes extracted"
-    },
-    {
-      "id": "ncsc-cloud",
-      "name": "NCSC Cloud Security Principles",
-      "authority": "NCSC-UK",
-      "url": "https://www.ncsc.gov.uk/collection/cloud/the-cloud-security-principles",
-      "version": "2024",
+      "id": "gds-servicestandard",
+      "name": "GDS Service Standard",
       "item_count": 14,
-      "item_type": "control",
-      "last_refresh": "2026-03-12",
-      "refresh_frequency": "annual",
-      "completeness": "full",
-      "completeness_note": "All 14 cloud security principles extracted"
+      "last_checked": "2026-03-12",
+      "update_frequency": "annual",
+      "next_check_due": "2027-03-12"
+    },
+    {
+      "id": "gds-techcode",
+      "name": "GDS Technology Code of Practice",
+      "item_count": 12,
+      "last_checked": "2026-03-12",
+      "update_frequency": "annual",
+      "next_check_due": "2027-03-12"
+    },
+    {
+      "id": "gov-cgcop",
+      "name": "Cyber Governance Code of Practice",
+      "item_count": 9,
+      "last_checked": "2026-03-12",
+      "update_frequency": "annual",
+      "next_check_due": "2027-03-12"
+    },
+    {
+      "id": "hmg-mcss",
+      "name": "HMG Minimum Cyber Security Standard",
+      "item_count": 10,
+      "last_checked": "2026-03-12",
+      "update_frequency": "annual",
+      "next_check_due": "2027-03-12"
+    },
+    {
+      "id": "mod-defstan",
+      "name": "Def Stan 05-138 Cyber Security for Defence Suppliers",
+      "item_count": 8,
+      "last_checked": "2026-03-12",
+      "update_frequency": "annual",
+      "next_check_due": "2027-03-12"
     },
     {
       "id": "ncsc-10steps",
       "name": "NCSC 10 Steps to Cyber Security",
-      "authority": "NCSC-UK",
-      "url": "https://www.ncsc.gov.uk/collection/10-steps",
-      "version": "2021",
       "item_count": 23,
-      "item_type": "control",
-      "last_refresh": "2026-03-12",
-      "refresh_frequency": "annual",
-      "completeness": "full",
-      "completeness_note": "All 10 steps with sub-guidance extracted"
-    },
-    {
-      "id": "nhs-dspt",
-      "name": "NHS Data Security and Protection Toolkit (DSPT)",
-      "authority": "NHS Digital / DHSC",
-      "url": "https://www.dsptoolkit.nhs.uk/",
-      "version": "2024-25",
-      "item_count": 30,
-      "item_type": "control",
-      "last_refresh": "2026-03-12",
-      "refresh_frequency": "annual",
-      "completeness": "full",
-      "completeness_note": "All 10 NDG standards with assertions extracted"
+      "last_checked": "2026-03-12",
+      "update_frequency": "annual",
+      "next_check_due": "2027-03-12"
     },
     {
       "id": "ncsc-board",
       "name": "NCSC Board Toolkit",
-      "authority": "NCSC-UK",
-      "url": "https://www.ncsc.gov.uk/collection/board-toolkit",
-      "version": "2023",
       "item_count": 12,
-      "item_type": "control",
-      "last_refresh": "2026-03-12",
-      "refresh_frequency": "annual",
-      "completeness": "full",
-      "completeness_note": "All 5 board questions with discussion points extracted"
-    }
-  ],
-  "gaps": [
-    {
-      "id": "ncsc-device-security",
-      "description": "NCSC Device Security Guidance — platform-specific security guides for Windows, macOS, iOS, Android, ChromeOS, Linux",
-      "reason": "Large scope; requires per-platform extraction",
-      "impact": "medium",
-      "planned": true,
-      "target_version": "1.1"
+      "last_checked": "2026-03-12",
+      "update_frequency": "annual",
+      "next_check_due": "2027-03-12"
     },
     {
-      "id": "ncsc-email-security",
-      "description": "NCSC Email Security and Anti-Spoofing guidance (DMARC, SPF, DKIM)",
-      "reason": "Available as HTML guidance; requires structured extraction",
-      "impact": "low",
-      "planned": true,
-      "target_version": "1.1"
+      "id": "ncsc-byod",
+      "name": "NCSC BYOD Guidance",
+      "item_count": 6,
+      "last_checked": "2026-03-12",
+      "update_frequency": "annual",
+      "next_check_due": "2027-03-12"
     },
     {
-      "id": "gov-security-classification",
-      "description": "Government Security Classifications Policy (OFFICIAL, SECRET, TOP SECRET)",
-      "reason": "Policy document rather than control framework; requires scoping decision",
-      "impact": "low",
-      "planned": false,
-      "target_version": null
+      "id": "ncsc-caf",
+      "name": "NCSC Cyber Assessment Framework (CAF)",
+      "item_count": 36,
+      "last_checked": "2026-03-12",
+      "update_frequency": "annual",
+      "next_check_due": "2027-03-12"
+    },
+    {
+      "id": "ncsc-ce",
+      "name": "NCSC Cyber Essentials",
+      "item_count": 16,
+      "last_checked": "2026-03-12",
+      "update_frequency": "annual",
+      "next_check_due": "2027-03-12"
+    },
+    {
+      "id": "ncsc-ceplus",
+      "name": "NCSC Cyber Essentials Plus",
+      "item_count": 13,
+      "last_checked": "2026-03-12",
+      "update_frequency": "annual",
+      "next_check_due": "2027-03-12"
+    },
+    {
+      "id": "ncsc-cloud",
+      "name": "NCSC Cloud Security Principles",
+      "item_count": 14,
+      "last_checked": "2026-03-12",
+      "update_frequency": "annual",
+      "next_check_due": "2027-03-12"
+    },
+    {
+      "id": "ncsc-email",
+      "name": "NCSC Email Security and Anti-Spoofing",
+      "item_count": 8,
+      "last_checked": "2026-03-12",
+      "update_frequency": "annual",
+      "next_check_due": "2027-03-12"
+    },
+    {
+      "id": "ncsc-iam",
+      "name": "NCSC Identity and Access Management Guidance",
+      "item_count": 8,
+      "last_checked": "2026-03-12",
+      "update_frequency": "annual",
+      "next_check_due": "2027-03-12"
+    },
+    {
+      "id": "ncsc-incident",
+      "name": "NCSC Incident Management Guidance",
+      "item_count": 10,
+      "last_checked": "2026-03-12",
+      "update_frequency": "annual",
+      "next_check_due": "2027-03-12"
+    },
+    {
+      "id": "ncsc-logging",
+      "name": "NCSC Logging and Protective Monitoring",
+      "item_count": 10,
+      "last_checked": "2026-03-12",
+      "update_frequency": "annual",
+      "next_check_due": "2027-03-12"
+    },
+    {
+      "id": "ncsc-passwords",
+      "name": "NCSC Password Administration for System Owners",
+      "item_count": 8,
+      "last_checked": "2026-03-12",
+      "update_frequency": "annual",
+      "next_check_due": "2027-03-12"
+    },
+    {
+      "id": "ncsc-scg",
+      "name": "NCSC Supply Chain Security Guidance",
+      "item_count": 12,
+      "last_checked": "2026-03-12",
+      "update_frequency": "annual",
+      "next_check_due": "2027-03-12"
+    },
+    {
+      "id": "ncsc-sdp",
+      "name": "NCSC Secure Design Principles",
+      "item_count": 12,
+      "last_checked": "2026-03-12",
+      "update_frequency": "annual",
+      "next_check_due": "2027-03-12"
+    },
+    {
+      "id": "ncsc-tls",
+      "name": "NCSC TLS Configuration Guidance",
+      "item_count": 7,
+      "last_checked": "2026-03-12",
+      "update_frequency": "annual",
+      "next_check_due": "2027-03-12"
+    },
+    {
+      "id": "ncsc-zt",
+      "name": "NCSC Zero Trust Architecture",
+      "item_count": 8,
+      "last_checked": "2026-03-12",
+      "update_frequency": "annual",
+      "next_check_due": "2027-03-12"
+    },
+    {
+      "id": "nhs-dcb0129",
+      "name": "NHS DCB0129 Clinical Risk Management (Manufacturers)",
+      "item_count": 7,
+      "last_checked": "2026-03-12",
+      "update_frequency": "annual",
+      "next_check_due": "2027-03-12"
+    },
+    {
+      "id": "nhs-dcb0160",
+      "name": "NHS DCB0160 Clinical Risk Management (Health Organisations)",
+      "item_count": 5,
+      "last_checked": "2026-03-12",
+      "update_frequency": "annual",
+      "next_check_due": "2027-03-12"
+    },
+    {
+      "id": "nhs-dspt",
+      "name": "NHS Data Security and Protection Toolkit (DSPT)",
+      "item_count": 30,
+      "last_checked": "2026-03-12",
+      "update_frequency": "annual",
+      "next_check_due": "2027-03-12"
+    },
+    {
+      "id": "nisr",
+      "name": "UK NIS Regulations 2018",
+      "item_count": 7,
+      "last_checked": "2026-03-12",
+      "update_frequency": "annual",
+      "next_check_due": "2027-03-12"
+    },
+    {
+      "id": "ofcom-tsa",
+      "name": "OFCOM Telecoms Security Code of Practice",
+      "item_count": 8,
+      "last_checked": "2026-03-12",
+      "update_frequency": "annual",
+      "next_check_due": "2027-03-12"
+    },
+    {
+      "id": "pra-opres",
+      "name": "PRA Operational Resilience (SS1/21)",
+      "item_count": 8,
+      "last_checked": "2026-03-12",
+      "update_frequency": "annual",
+      "next_check_due": "2027-03-12"
     }
   ],
   "tools": [
-    {
-      "name": "search_controls",
-      "category": "search",
-      "description": "Full-text search across all controls",
-      "data_sources": ["ncsc-ce", "ncsc-caf", "ncsc-cloud", "ncsc-10steps", "nhs-dspt", "ncsc-board"],
-      "verified": true
-    },
-    {
-      "name": "get_control",
-      "category": "lookup",
-      "description": "Retrieve a specific control by framework-prefixed ID",
-      "data_sources": ["ncsc-ce", "ncsc-caf", "ncsc-cloud", "ncsc-10steps", "nhs-dspt", "ncsc-board"],
-      "verified": true
-    },
-    {
-      "name": "list_controls",
-      "category": "lookup",
-      "description": "List all controls for a given framework with optional category filter",
-      "data_sources": ["ncsc-ce", "ncsc-caf", "ncsc-cloud", "ncsc-10steps", "nhs-dspt", "ncsc-board"],
-      "verified": true
-    },
-    {
-      "name": "list_frameworks",
-      "category": "lookup",
-      "description": "List all available frameworks with control counts",
-      "data_sources": ["ncsc-ce", "ncsc-caf", "ncsc-cloud", "ncsc-10steps", "nhs-dspt", "ncsc-board"],
-      "verified": true
-    },
-    {
-      "name": "get_framework",
-      "category": "lookup",
-      "description": "Get detailed information about a specific framework",
-      "data_sources": ["ncsc-ce", "ncsc-caf", "ncsc-cloud", "ncsc-10steps", "nhs-dspt", "ncsc-board"],
-      "verified": true
-    },
-    {
-      "name": "get_iso_mapping",
-      "category": "analysis",
-      "description": "Find UK controls that map to a specific ISO 27001/27002 control",
-      "data_sources": ["ncsc-ce", "ncsc-caf", "ncsc-cloud", "ncsc-10steps", "nhs-dspt", "ncsc-board"],
-      "verified": true
-    },
-    {
-      "name": "compare_controls",
-      "category": "analysis",
-      "description": "Compare controls between two or more frameworks side by side",
-      "data_sources": ["ncsc-ce", "ncsc-caf", "ncsc-cloud", "ncsc-10steps", "nhs-dspt", "ncsc-board"],
-      "verified": true
-    },
-    {
-      "name": "search_by_sector",
-      "category": "search",
-      "description": "Find controls relevant to a specific sector (government, healthcare, etc.)",
-      "data_sources": ["ncsc-ce", "ncsc-caf", "ncsc-cloud", "ncsc-10steps", "nhs-dspt", "ncsc-board"],
-      "verified": true
-    },
-    {
-      "name": "about",
-      "category": "meta",
-      "description": "Server metadata, stats, data sources, and disclaimer",
-      "data_sources": [],
-      "verified": true
-    },
-    {
-      "name": "check_data_freshness",
-      "category": "meta",
-      "description": "Per-source data age report with staleness flags",
-      "data_sources": ["ncsc-ce", "ncsc-caf", "ncsc-cloud", "ncsc-10steps", "nhs-dspt", "ncsc-board"],
-      "verified": true
-    },
-    {
-      "name": "list_sources",
-      "category": "meta",
-      "description": "Data provenance and licensing information for all sources",
-      "data_sources": [],
-      "verified": true
-    }
-  ],
-  "summary": {
-    "total_tools": 11,
-    "total_sources": 6,
-    "total_items": 131,
-    "db_size_mb": 0.19,
-    "known_gaps": 3,
-    "gaps_planned": 2
-  }
+    "about",
+    "check_data_freshness",
+    "compare_controls",
+    "get_control",
+    "get_framework",
+    "get_iso_mapping",
+    "list_controls",
+    "list_frameworks",
+    "list_sources",
+    "search_by_sector",
+    "search_controls"
+  ]
 }

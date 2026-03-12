@@ -1,7 +1,7 @@
 {
   "name": "@ansvar/uk-standards-mcp",
   "version": "0.1.0",
-  "description": "UK government cybersecurity standards MCP -- NCSC Cyber Essentials, Cyber Assessment Framework (CAF), Cloud Security Principles, 10 Steps to Cyber Security, NHS DSPT, Board Toolkit. Part of the Ansvar MCP Network (ansvar.ai/mcp)",
+  "description": "UK government cybersecurity standards MCP -- 28 frameworks (328 controls): NCSC publications, GDS standards, HMG MCSS, NIS Regulations, NHS DSPT/DCB0129/DCB0160, PRA/FCA financial resilience, OFCOM telecoms security, MOD Def Stan 05-138. Part of the Ansvar MCP Network (ansvar.ai/mcp)",
   "main": "dist/index.js",
   "type": "module",
   "bin": {
@@ -27,7 +27,7 @@
     "freshness:check": "node --import tsx scripts/check-freshness.ts",
     "prepare": "test -f dist/index.js || npm run build"
   },
-  "keywords": ["mcp", "uk", "united-kingdom", "ncsc", "cyber-essentials", "caf", "nhs", "cybersecurity", "compliance", "standards"],
+  "keywords": ["mcp", "uk", "united-kingdom", "ncsc", "cyber-essentials", "caf", "nhs", "cybersecurity", "compliance", "standards", "zero-trust", "nis-regulations", "ofcom", "pra", "fca", "mod", "defence", "gds"],
   "author": "Ansvar Systems <hello@ansvar.eu>",
   "license": "Apache-2.0",
   "repository": {

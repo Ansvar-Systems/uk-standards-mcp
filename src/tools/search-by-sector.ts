@@ -9,10 +9,13 @@ const ALLOWED_SECTORS = new Set([
   'finance',
   'energy',
   'telecom',
+  'telecoms',
   'transport',
   'water',
   'digital_infrastructure',
   'education',
+  'defence',
+  'all',
 ]);
 
 interface FrameworkRow {

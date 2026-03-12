@@ -1,0 +1,133 @@
+{
+  "framework": {
+    "id": "ncsc-iam",
+    "name": "NCSC Identity and Access Management Guidance",
+    "name_nl": "NCSC Identity and Access Management Guidance",
+    "issuing_body": "National Cyber Security Centre (NCSC-UK)",
+    "version": "2024",
+    "effective_date": "2024-01-01",
+    "scope": "Guidance on implementing identity and access management covering identity lifecycle, authentication, authorisation, federation, and privileged access management",
+    "scope_sectors": [
+      "government",
+      "all"
+    ],
+    "structure_description": "Controls covering the full IAM lifecycle from identity creation through authentication, authorisation, and deprovisioning",
+    "source_url": "https://www.ncsc.gov.uk/guidance/introduction-identity-and-access-management",
+    "license": "Open Government Licence v3.0",
+    "language": "en"
+  },
+  "controls": [
+    {
+      "control_number": "1",
+      "title": "Establish a single source of identity",
+      "title_nl": "Establish a single source of identity",
+      "description": "Maintain a single authoritative directory of user identities. Each person should have one identity used across all systems. Avoid siloed identity stores that lead to inconsistent access and orphaned accounts.",
+      "description_nl": "Maintain a single authoritative directory of user identities. Each person should have one identity used across all systems. Avoid siloed identity stores that lead to inconsistent access and orphaned accounts.",
+      "category": "Identity Lifecycle",
+      "subcategory": "Identity directory",
+      "level": null,
+      "iso_mapping": "A.9.2.1",
+      "implementation_guidance": "Deploy a central identity provider (IdP). Synchronise identities from HR systems. Implement automated provisioning and deprovisioning. Use directory services (Active Directory, Entra ID, or equivalent).",
+      "verification_guidance": "Review identity directory architecture. Verify HR-to-directory synchronisation. Check for orphaned accounts.",
+      "source_url": "https://www.ncsc.gov.uk/guidance/introduction-identity-and-access-management"
+    },
+    {
+      "control_number": "2",
+      "title": "Manage the identity lifecycle",
+      "title_nl": "Manage the identity lifecycle",
+      "description": "Manage identities throughout their lifecycle: creation (joiner), modification (mover), and removal (leaver). Automate where possible to reduce human error and delays, particularly for the leaver process.",
+      "description_nl": "Manage identities throughout their lifecycle: creation (joiner), modification (mover), and removal (leaver). Automate where possible to reduce human error and delays, particularly for the leaver process.",
+      "category": "Identity Lifecycle",
+      "subcategory": "Joiner-mover-leaver",
+      "level": null,
+      "iso_mapping": "A.9.2.6",
+      "implementation_guidance": "Automate the joiner-mover-leaver process. Link to HR events for triggers. Disable accounts immediately on departure. Review and adjust access on role changes.",
+      "verification_guidance": "Review JML process documentation. Test leaver account disablement timeliness. Audit mover access adjustments.",
+      "source_url": "https://www.ncsc.gov.uk/guidance/introduction-identity-and-access-management"
+    },
+    {
+      "control_number": "3",
+      "title": "Use strong authentication",
+      "title_nl": "Use strong authentication",
+      "description": "Implement authentication that is proportionate to the sensitivity of the resource being accessed. Use multi-factor authentication for all internet-facing services and privileged access. Consider risk-based authentication for high-value assets.",
+      "description_nl": "Implement authentication that is proportionate to the sensitivity of the resource being accessed. Use multi-factor authentication for all internet-facing services and privileged access. Consider risk-based authentication for high-value assets.",
+      "category": "Authentication",
+      "subcategory": "Authentication strength",
+      "level": null,
+      "iso_mapping": "A.9.4.2",
+      "implementation_guidance": "Deploy MFA for internet-facing and privileged access. Use FIDO2 for highest-assurance requirements. Implement risk-based step-up authentication. Avoid knowledge-based authentication alone.",
+      "verification_guidance": "Review authentication mechanisms by system. Verify MFA coverage. Test step-up authentication scenarios.",
+      "source_url": "https://www.ncsc.gov.uk/guidance/introduction-identity-and-access-management"
+    },
+    {
+      "control_number": "4",
+      "title": "Implement federation and single sign-on",
+      "title_nl": "Implement federation and single sign-on",
+      "description": "Use federation protocols (SAML 2.0, OpenID Connect) to enable single sign-on across services. Federation reduces password fatigue, centralises authentication, and enables consistent policy enforcement.",
+      "description_nl": "Use federation protocols (SAML 2.0, OpenID Connect) to enable single sign-on across services. Federation reduces password fatigue, centralises authentication, and enables consistent policy enforcement.",
+      "category": "Authentication",
+      "subcategory": "Federation and SSO",
+      "level": null,
+      "iso_mapping": "A.9.4.2",
+      "implementation_guidance": "Deploy a federation-capable identity provider. Integrate services using OIDC (preferred) or SAML 2.0. Establish trust relationships with partner organisations where needed.",
+      "verification_guidance": "Inventory federated services. Verify federation protocols in use. Test SSO login flows.",
+      "source_url": "https://www.ncsc.gov.uk/guidance/introduction-identity-and-access-management"
+    },
+    {
+      "control_number": "5",
+      "title": "Apply role-based access control",
+      "title_nl": "Apply role-based access control",
+      "description": "Define roles that map to job functions and assign permissions to roles rather than individual users. This makes access management scalable and auditable. Review role definitions and assignments regularly.",
+      "description_nl": "Define roles that map to job functions and assign permissions to roles rather than individual users. This makes access management scalable and auditable. Review role definitions and assignments regularly.",
+      "category": "Authorisation",
+      "subcategory": "RBAC",
+      "level": null,
+      "iso_mapping": "A.9.2.2",
+      "implementation_guidance": "Define roles based on job functions. Assign permissions to roles, not users. Review roles quarterly. Monitor for role explosion and consolidate overlapping roles.",
+      "verification_guidance": "Review role definitions and permissions. Verify users are assigned appropriate roles. Check for excessive role accumulation.",
+      "source_url": "https://www.ncsc.gov.uk/guidance/introduction-identity-and-access-management"
+    },
+    {
+      "control_number": "6",
+      "title": "Manage privileged access",
+      "title_nl": "Manage privileged access",
+      "description": "Privileged accounts (administrators, service accounts with elevated permissions) require additional controls: separate accounts, MFA, session recording, just-in-time access, and regular review.",
+      "description_nl": "Privileged accounts (administrators, service accounts with elevated permissions) require additional controls: separate accounts, MFA, session recording, just-in-time access, and regular review.",
+      "category": "Privileged Access",
+      "subcategory": "PAM",
+      "level": null,
+      "iso_mapping": "A.9.2.3",
+      "implementation_guidance": "Deploy privileged access management (PAM) tools. Implement just-in-time privilege elevation. Record privileged sessions. Require separate admin accounts. Review privileged access monthly.",
+      "verification_guidance": "Inventory privileged accounts. Verify PAM controls are in place. Review session recording coverage. Check access review frequency.",
+      "source_url": "https://www.ncsc.gov.uk/guidance/introduction-identity-and-access-management"
+    },
+    {
+      "control_number": "7",
+      "title": "Conduct regular access reviews",
+      "title_nl": "Conduct regular access reviews",
+      "description": "Review user access rights periodically to identify and remove excessive, unused, or inappropriate access. Reviews should be conducted by business owners who understand the required access for each role.",
+      "description_nl": "Review user access rights periodically to identify and remove excessive, unused, or inappropriate access. Reviews should be conducted by business owners who understand the required access for each role.",
+      "category": "Authorisation",
+      "subcategory": "Access reviews",
+      "level": null,
+      "iso_mapping": "A.9.2.5",
+      "implementation_guidance": "Schedule quarterly access reviews for standard accounts and monthly for privileged accounts. Assign reviews to business owners. Automate review workflows. Track remediation of findings.",
+      "verification_guidance": "Verify access review schedule and completion. Check that findings are remediated. Review recertification rates.",
+      "source_url": "https://www.ncsc.gov.uk/guidance/introduction-identity-and-access-management"
+    },
+    {
+      "control_number": "8",
+      "title": "Manage service and machine identities",
+      "title_nl": "Manage service and machine identities",
+      "description": "Service accounts and machine identities (API keys, certificates, managed identities) must be managed with the same rigour as human identities. Avoid shared credentials, rotate secrets, and use managed identities where available.",
+      "description_nl": "Service accounts and machine identities (API keys, certificates, managed identities) must be managed with the same rigour as human identities. Avoid shared credentials, rotate secrets, and use managed identities where available.",
+      "category": "Identity Lifecycle",
+      "subcategory": "Non-human identities",
+      "level": null,
+      "iso_mapping": "A.9.4.3",
+      "implementation_guidance": "Inventory all service accounts and machine identities. Use managed identities instead of shared credentials where possible. Rotate secrets and keys on schedule. Apply least privilege to service accounts.",
+      "verification_guidance": "Audit service account inventory. Verify secret rotation schedules. Check for shared credentials.",
+      "source_url": "https://www.ncsc.gov.uk/guidance/introduction-identity-and-access-management"
+    }
+  ]
+}

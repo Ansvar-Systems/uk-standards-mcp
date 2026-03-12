@@ -17,12 +17,40 @@ interface FetchResult {
 }
 
 const SOURCES: { script: string; source: string }[] = [
+  // NCSC frameworks
   { script: join(__dirname, 'ingest-ncsc-ce.ts'), source: 'NCSC Cyber Essentials' },
+  { script: join(__dirname, 'ingest-ncsc-ceplus.ts'), source: 'NCSC Cyber Essentials Plus' },
   { script: join(__dirname, 'ingest-ncsc-caf.ts'), source: 'NCSC Cyber Assessment Framework (CAF)' },
   { script: join(__dirname, 'ingest-ncsc-cloud.ts'), source: 'NCSC Cloud Security Principles' },
   { script: join(__dirname, 'ingest-ncsc-10steps.ts'), source: 'NCSC 10 Steps to Cyber Security' },
-  { script: join(__dirname, 'ingest-nhs-dspt.ts'), source: 'NHS Data Security and Protection Toolkit' },
   { script: join(__dirname, 'ingest-ncsc-board.ts'), source: 'NCSC Board Toolkit' },
+  { script: join(__dirname, 'ingest-ncsc-scg.ts'), source: 'NCSC Supply Chain Security Guidance' },
+  { script: join(__dirname, 'ingest-ncsc-zt.ts'), source: 'NCSC Zero Trust Architecture' },
+  { script: join(__dirname, 'ingest-ncsc-email.ts'), source: 'NCSC Email Security and Anti-Spoofing' },
+  { script: join(__dirname, 'ingest-ncsc-tls.ts'), source: 'NCSC TLS Configuration Guidance' },
+  { script: join(__dirname, 'ingest-ncsc-passwords.ts'), source: 'NCSC Password Administration Guidance' },
+  { script: join(__dirname, 'ingest-ncsc-sdp.ts'), source: 'NCSC Secure Design Principles' },
+  { script: join(__dirname, 'ingest-ncsc-iam.ts'), source: 'NCSC Identity and Access Management' },
+  { script: join(__dirname, 'ingest-ncsc-logging.ts'), source: 'NCSC Logging and Protective Monitoring' },
+  { script: join(__dirname, 'ingest-ncsc-incident.ts'), source: 'NCSC Incident Management Guidance' },
+  { script: join(__dirname, 'ingest-ncsc-byod.ts'), source: 'NCSC BYOD Guidance' },
+  // Government standards
+  { script: join(__dirname, 'ingest-gds-techcode.ts'), source: 'GDS Technology Code of Practice' },
+  { script: join(__dirname, 'ingest-gds-servicestandard.ts'), source: 'GDS Service Standard' },
+  { script: join(__dirname, 'ingest-hmg-mcss.ts'), source: 'HMG Minimum Cyber Security Standard' },
+  { script: join(__dirname, 'ingest-gov-cgcop.ts'), source: 'Cyber Governance Code of Practice' },
+  // Regulatory frameworks
+  { script: join(__dirname, 'ingest-nisr.ts'), source: 'UK NIS Regulations 2018' },
+  { script: join(__dirname, 'ingest-ofcom-tsa.ts'), source: 'OFCOM Telecoms Security Code of Practice' },
+  // Healthcare
+  { script: join(__dirname, 'ingest-nhs-dspt.ts'), source: 'NHS Data Security and Protection Toolkit' },
+  { script: join(__dirname, 'ingest-nhs-dcb0129.ts'), source: 'DCB0129 Clinical Risk Management (Manufacturers)' },
+  { script: join(__dirname, 'ingest-nhs-dcb0160.ts'), source: 'DCB0160 Clinical Risk Management (Health Organisations)' },
+  // Financial services
+  { script: join(__dirname, 'ingest-pra-opres.ts'), source: 'PRA Operational Resilience (SS1/21)' },
+  { script: join(__dirname, 'ingest-fca-sysc.ts'), source: 'FCA SYSC 13 Operational Risk' },
+  // Defence
+  { script: join(__dirname, 'ingest-mod-defstan.ts'), source: 'Def Stan 05-138 Cyber Security for Defence Suppliers' },
 ];
 
 function runScript(scriptPath: string): { success: boolean; error?: string; durationMs: number } {

@@ -27,11 +27,33 @@ const SOURCES_YML = join(PROJECT_ROOT, 'sources.yml');
 // Map from framework DB id -> source id used in coverage.json
 const FRAMEWORK_TO_SOURCE: Record<string, string> = {
   'ncsc-ce': 'ncsc-ce',
+  'ncsc-ceplus': 'ncsc-ceplus',
   'ncsc-caf': 'ncsc-caf',
   'ncsc-cloud': 'ncsc-cloud',
   'ncsc-10steps': 'ncsc-10steps',
   'nhs-dspt': 'nhs-dspt',
   'ncsc-board': 'ncsc-board',
+  'ncsc-scg': 'ncsc-scg',
+  'ncsc-zt': 'ncsc-zt',
+  'ncsc-email': 'ncsc-email',
+  'ncsc-tls': 'ncsc-tls',
+  'ncsc-passwords': 'ncsc-passwords',
+  'ncsc-sdp': 'ncsc-sdp',
+  'ncsc-iam': 'ncsc-iam',
+  'ncsc-logging': 'ncsc-logging',
+  'ncsc-incident': 'ncsc-incident',
+  'ncsc-byod': 'ncsc-byod',
+  'gds-techcode': 'gds-techcode',
+  'gds-servicestandard': 'gds-servicestandard',
+  'hmg-mcss': 'hmg-mcss',
+  'gov-cgcop': 'gov-cgcop',
+  'nisr': 'nisr',
+  'ofcom-tsa': 'ofcom-tsa',
+  'nhs-dcb0129': 'nhs-dcb0129',
+  'nhs-dcb0160': 'nhs-dcb0160',
+  'pra-opres': 'pra-opres',
+  'fca-sysc': 'fca-sysc',
+  'mod-defstan': 'mod-defstan',
 };
 
 // Canonical source metadata — derived from sources.yml
@@ -62,12 +84,34 @@ function parseSourcesYml(content: string): SourceMeta[] {
 
     // Determine source id from name
     let id = 'unknown';
-    if (fullName.includes('Cyber Essentials')) id = 'ncsc-ce';
+    if (fullName.includes('Cyber Essentials Plus')) id = 'ncsc-ceplus';
+    else if (fullName.includes('Cyber Essentials')) id = 'ncsc-ce';
     else if (fullName.includes('CAF') || fullName.includes('Cyber Assessment Framework')) id = 'ncsc-caf';
     else if (fullName.includes('Cloud Security')) id = 'ncsc-cloud';
     else if (fullName.includes('10 Steps')) id = 'ncsc-10steps';
-    else if (fullName.includes('DSPT') || fullName.includes('Data Security')) id = 'nhs-dspt';
+    else if (fullName.includes('DSPT') || fullName.includes('Data Security and Protection Toolkit')) id = 'nhs-dspt';
     else if (fullName.includes('Board Toolkit')) id = 'ncsc-board';
+    else if (fullName.includes('Supply Chain Security')) id = 'ncsc-scg';
+    else if (fullName.includes('Zero Trust')) id = 'ncsc-zt';
+    else if (fullName.includes('Email Security')) id = 'ncsc-email';
+    else if (fullName.includes('TLS')) id = 'ncsc-tls';
+    else if (fullName.includes('Password')) id = 'ncsc-passwords';
+    else if (fullName.includes('Secure Design')) id = 'ncsc-sdp';
+    else if (fullName.includes('Identity and Access')) id = 'ncsc-iam';
+    else if (fullName.includes('Logging')) id = 'ncsc-logging';
+    else if (fullName.includes('Incident Management')) id = 'ncsc-incident';
+    else if (fullName.includes('BYOD')) id = 'ncsc-byod';
+    else if (fullName.includes('Technology Code')) id = 'gds-techcode';
+    else if (fullName.includes('Service Standard')) id = 'gds-servicestandard';
+    else if (fullName.includes('Minimum Cyber Security')) id = 'hmg-mcss';
+    else if (fullName.includes('Cyber Governance')) id = 'gov-cgcop';
+    else if (fullName.includes('NIS Regulations')) id = 'nisr';
+    else if (fullName.includes('Telecoms Security') || fullName.includes('OFCOM')) id = 'ofcom-tsa';
+    else if (fullName.includes('DCB0129')) id = 'nhs-dcb0129';
+    else if (fullName.includes('DCB0160')) id = 'nhs-dcb0160';
+    else if (fullName.includes('PRA') || fullName.includes('Operational Resilience')) id = 'pra-opres';
+    else if (fullName.includes('FCA') || fullName.includes('SYSC')) id = 'fca-sysc';
+    else if (fullName.includes('Def Stan') || fullName.includes('05-138')) id = 'mod-defstan';
 
     sources.push({ id, name: fullName, update_frequency: freq, source_type: srcType });
   }

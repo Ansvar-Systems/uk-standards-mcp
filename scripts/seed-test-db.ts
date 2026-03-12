@@ -77,6 +77,14 @@ insertFramework.run('ncsc-ce', 'NCSC Cyber Essentials', 'NCSC Cyber Essentials',
 
 insertFramework.run('nhs-dspt', 'NHS Data Security and Protection Toolkit', 'NHS Data Security and Protection Toolkit', 'NHS Digital / Department of Health and Social Care (DHSC)', '2024-25', '2024-07-01', 'Data security standards for all organisations that access NHS patient data and systems', '["healthcare"]', '10 data security standards from the National Data Guardian review', 'https://www.dsptoolkit.nhs.uk/', 'Open Government Licence v3.0', 'en');
 
+insertFramework.run('ncsc-zt', 'NCSC Zero Trust Architecture', 'NCSC Zero Trust Architecture', 'National Cyber Security Centre (NCSC-UK)', '2024', '2024-01-01', '8 principles for zero trust network architectures', '["government","defence","all"]', '8 zero trust principles covering identity, device health, policy enforcement, and monitoring', 'https://www.ncsc.gov.uk/collection/zero-trust-architecture', 'Open Government Licence v3.0', 'en');
+
+insertFramework.run('hmg-mcss', 'HMG Minimum Cyber Security Standard', 'HMG Minimum Cyber Security Standard', 'Cabinet Office / HM Government', '2018', '2018-06-01', 'Mandatory minimum cyber security standard for government departments', '["government"]', '10 requirements across identify, protect, detect, respond, recover', 'https://www.gov.uk/government/publications/the-minimum-cyber-security-standard', 'Open Government Licence v3.0', 'en');
+
+insertFramework.run('pra-opres', 'PRA Operational Resilience (SS1/21)', 'PRA Operational Resilience (SS1/21)', 'Prudential Regulation Authority (PRA) / Bank of England', 'SS1/21', '2022-03-31', 'Operational resilience requirements for PRA-regulated firms', '["finance"]', 'Requirements for important business services, impact tolerances, and scenario testing', 'https://www.bankofengland.co.uk/prudential-regulation/publication/2021/march/operational-resilience-ss', 'Open Government Licence v3.0', 'en');
+
+insertFramework.run('mod-defstan', 'Def Stan 05-138 Cyber Security for Defence Suppliers', 'Def Stan 05-138 Cyber Security for Defence Suppliers', 'Ministry of Defence (MOD)', 'Issue 3', '2024-01-01', 'Mandatory cyber security requirements for MOD suppliers', '["defence"]', 'Tiered requirements for defence contractors handling MOD information', 'https://www.gov.uk/government/publications/defence-standard-05-138', 'Open Government Licence v3.0', 'en');
+
 const insertControl = db.prepare(
   'INSERT OR REPLACE INTO controls (id, framework_id, control_number, title, title_nl, description, description_nl, category, subcategory, level, iso_mapping, implementation_guidance, verification_guidance, source_url) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)'
 );
@@ -103,6 +111,18 @@ insertControl.run('nhs-dspt:1', 'nhs-dspt', '1', 'Personal Confidential Data', '
 insertControl.run('nhs-dspt:3', 'nhs-dspt', '3', 'Training', 'Training', 'All staff complete appropriate annual data security training and pass a mandatory test.', 'All staff complete appropriate annual data security training and pass a mandatory test.', 'People', 'Standard 3', null, 'A.7.2.2', 'Deliver annual mandatory data security awareness training to all staff.', 'Review training completion statistics. Verify target compliance rate is met.', 'https://www.dsptoolkit.nhs.uk/');
 
 insertControl.run('nhs-dspt:9', 'nhs-dspt', '9', 'IT Protection', 'IT Protection', 'A strategy is in place for protecting IT systems from cyber threats based on a proven cyber security framework such as Cyber Essentials.', 'A strategy is in place for protecting IT systems from cyber threats based on a proven cyber security framework such as Cyber Essentials.', 'Technology', 'Standard 9', null, 'A.12.6.1', 'Adopt a recognised cyber security framework. Implement the framework controls.', 'Verify a cyber security framework is adopted.', 'https://www.dsptoolkit.nhs.uk/');
+
+// Zero Trust control
+insertControl.run('ncsc-zt:1', 'ncsc-zt', '1', 'Know your architecture including users, devices, services and data', 'Know your architecture including users, devices, services and data', 'In a zero trust architecture, you need a thorough understanding of your assets.', 'In a zero trust architecture, you need a thorough understanding of your assets.', 'Architecture Foundations', 'Asset inventory', null, 'A.8.1.1', 'Maintain a dynamic inventory of all users, devices, services, and data stores.', 'Review asset inventory for completeness and currency.', 'https://www.ncsc.gov.uk/collection/zero-trust-architecture/zero-trust-principles/know-your-architecture');
+
+// HMG MCSS control
+insertControl.run('hmg-mcss:1', 'hmg-mcss', '1', 'Identify and catalogue information assets', 'Identify and catalogue information assets', 'Departments shall identify, catalogue, and manage information held in their systems and services.', 'Departments shall identify, catalogue, and manage information held in their systems and services.', 'Identify', 'Asset management', null, 'A.8.1.1', 'Maintain an asset register of information systems and data.', 'Review asset register completeness.', 'https://www.gov.uk/government/publications/the-minimum-cyber-security-standard');
+
+// PRA control
+insertControl.run('pra-opres:1', 'pra-opres', '1', 'Identify important business services', 'Identify important business services', 'Firms must identify their important business services whose disruption could cause intolerable harm.', 'Firms must identify their important business services whose disruption could cause intolerable harm.', 'Service Identification', 'Important business services', null, 'A.8.1.1', 'Map all business services. Assess each for potential harm if disrupted.', 'Review important business service register.', 'https://www.bankofengland.co.uk/prudential-regulation/publication/2021/march/operational-resilience-ss');
+
+// Def Stan control
+insertControl.run('mod-defstan:1', 'mod-defstan', '1', 'Achieve Cyber Essentials Plus certification', 'Achieve Cyber Essentials Plus certification', 'Defence suppliers must achieve and maintain Cyber Essentials Plus certification as a minimum baseline.', 'Defence suppliers must achieve and maintain Cyber Essentials Plus certification as a minimum baseline.', 'Baseline Requirements', 'Certification', 'Level 1', 'A.12.6.1', 'Achieve Cyber Essentials Plus certification from an accredited assessor.', 'Verify current Cyber Essentials Plus certificate.', 'https://www.gov.uk/government/publications/defence-standard-05-138');
 
 db.exec("INSERT INTO controls_fts(controls_fts) VALUES('rebuild')");
 

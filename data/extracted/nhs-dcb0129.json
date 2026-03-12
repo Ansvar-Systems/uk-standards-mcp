@@ -1,0 +1,118 @@
+{
+  "framework": {
+    "id": "nhs-dcb0129",
+    "name": "DCB0129 Clinical Risk Management (Manufacturers)",
+    "name_nl": "DCB0129 Clinical Risk Management (Manufacturers)",
+    "issuing_body": "NHS England",
+    "version": "2023",
+    "effective_date": "2023-01-01",
+    "scope": "Standard for manufacturers of health IT systems to apply clinical risk management throughout the product lifecycle, ensuring patient safety is addressed during design, development, and deployment.",
+    "scope_sectors": [
+      "healthcare"
+    ],
+    "structure_description": "Requirements for clinical safety officers, hazard identification, risk analysis, risk evaluation, risk control, and residual risk management in health IT system manufacture",
+    "source_url": "https://digital.nhs.uk/data-and-information/information-standards/information-standards-and-data-collections-including-extractions/publications-and-notifications/standards-and-collections/dcb0129-clinical-risk-management-its-application-in-the-manufacture-of-health-it-systems",
+    "license": "Open Government Licence v3.0",
+    "language": "en"
+  },
+  "controls": [
+    {
+      "control_number": "1",
+      "title": "Appoint a Clinical Safety Officer",
+      "title_nl": "Appoint a Clinical Safety Officer",
+      "description": "The manufacturer must appoint a suitably qualified Clinical Safety Officer (CSO) who is a registered health professional with relevant clinical experience and training in clinical risk management for health IT.",
+      "description_nl": "The manufacturer must appoint a suitably qualified Clinical Safety Officer (CSO) who is a registered health professional with relevant clinical experience and training in clinical risk management for health IT.",
+      "category": "Governance",
+      "subcategory": "Clinical Safety Officer",
+      "level": null,
+      "iso_mapping": "5.3",
+      "implementation_guidance": "Appoint a registered health professional as CSO. Ensure they hold or are working towards the NHS Digital Clinical Safety Training certificate. Define CSO responsibilities in role documentation.",
+      "verification_guidance": "Verify CSO appointment. Check professional registration. Confirm training status.",
+      "source_url": "https://digital.nhs.uk/data-and-information/information-standards/information-standards-and-data-collections-including-extractions/publications-and-notifications/standards-and-collections/dcb0129-clinical-risk-management-its-application-in-the-manufacture-of-health-it-systems"
+    },
+    {
+      "control_number": "2",
+      "title": "Establish a Clinical Risk Management System",
+      "title_nl": "Establish a Clinical Risk Management System",
+      "description": "The manufacturer must establish, document, and maintain a Clinical Risk Management System (CRMS) that defines the processes and procedures for managing clinical risk throughout the health IT system lifecycle.",
+      "description_nl": "The manufacturer must establish, document, and maintain a Clinical Risk Management System (CRMS) that defines the processes and procedures for managing clinical risk throughout the health IT system lifecycle.",
+      "category": "Risk Management",
+      "subcategory": "CRMS establishment",
+      "level": null,
+      "iso_mapping": "6.1",
+      "implementation_guidance": "Document a Clinical Risk Management System covering scope, roles, processes, and tools. Include criteria for hazard identification, risk assessment, and risk treatment. Integrate with the software development lifecycle.",
+      "verification_guidance": "Review CRMS documentation. Verify integration with SDLC. Check coverage of all lifecycle stages.",
+      "source_url": "https://digital.nhs.uk/data-and-information/information-standards/information-standards-and-data-collections-including-extractions/publications-and-notifications/standards-and-collections/dcb0129-clinical-risk-management-its-application-in-the-manufacture-of-health-it-systems"
+    },
+    {
+      "control_number": "3",
+      "title": "Produce a Clinical Safety Case",
+      "title_nl": "Produce a Clinical Safety Case",
+      "description": "The manufacturer must produce and maintain a Clinical Safety Case that documents the clinical risk management activities performed and provides a structured argument that the health IT system is safe for its intended use.",
+      "description_nl": "The manufacturer must produce and maintain a Clinical Safety Case that documents the clinical risk management activities performed and provides a structured argument that the health IT system is safe for its intended use.",
+      "category": "Risk Management",
+      "subcategory": "Safety case",
+      "level": null,
+      "iso_mapping": null,
+      "implementation_guidance": "Create a Clinical Safety Case document. Include hazard log, risk assessments, risk control measures, and a safety argument. Update the safety case at each release.",
+      "verification_guidance": "Review Clinical Safety Case. Verify it is current. Check the safety argument is supported by evidence.",
+      "source_url": "https://digital.nhs.uk/data-and-information/information-standards/information-standards-and-data-collections-including-extractions/publications-and-notifications/standards-and-collections/dcb0129-clinical-risk-management-its-application-in-the-manufacture-of-health-it-systems"
+    },
+    {
+      "control_number": "4",
+      "title": "Conduct hazard identification",
+      "title_nl": "Conduct hazard identification",
+      "description": "The manufacturer must identify clinical hazards that could arise from the use, misuse, or failure of the health IT system. Hazard identification should consider all reasonably foreseeable scenarios including data integrity failures and system unavailability.",
+      "description_nl": "The manufacturer must identify clinical hazards that could arise from the use, misuse, or failure of the health IT system. Hazard identification should consider all reasonably foreseeable scenarios including data integrity failures and system unavailability.",
+      "category": "Hazard Management",
+      "subcategory": "Hazard identification",
+      "level": null,
+      "iso_mapping": "6.1",
+      "implementation_guidance": "Conduct structured hazard identification workshops. Consider use cases, failure modes, cybersecurity threats, and human factors. Record all identified hazards in a hazard log.",
+      "verification_guidance": "Review hazard log. Verify hazard identification process. Check coverage of failure scenarios.",
+      "source_url": "https://digital.nhs.uk/data-and-information/information-standards/information-standards-and-data-collections-including-extractions/publications-and-notifications/standards-and-collections/dcb0129-clinical-risk-management-its-application-in-the-manufacture-of-health-it-systems"
+    },
+    {
+      "control_number": "5",
+      "title": "Assess and control clinical risks",
+      "title_nl": "Assess and control clinical risks",
+      "description": "Each identified hazard must be assessed for clinical risk using a risk matrix (severity x likelihood). Risks that are unacceptable must have control measures applied. Residual risk must be documented and accepted by the CSO.",
+      "description_nl": "Each identified hazard must be assessed for clinical risk using a risk matrix (severity x likelihood). Risks that are unacceptable must have control measures applied. Residual risk must be documented and accepted by the CSO.",
+      "category": "Hazard Management",
+      "subcategory": "Risk assessment and control",
+      "level": null,
+      "iso_mapping": "8.2",
+      "implementation_guidance": "Assess each hazard using the clinical risk matrix. Apply control measures to reduce unacceptable risks. Document residual risk. Obtain CSO sign-off on residual risk acceptance.",
+      "verification_guidance": "Review risk assessments. Verify control measures are implemented. Check CSO sign-off on residual risks.",
+      "source_url": "https://digital.nhs.uk/data-and-information/information-standards/information-standards-and-data-collections-including-extractions/publications-and-notifications/standards-and-collections/dcb0129-clinical-risk-management-its-application-in-the-manufacture-of-health-it-systems"
+    },
+    {
+      "control_number": "6",
+      "title": "Maintain a Hazard Log",
+      "title_nl": "Maintain a Hazard Log",
+      "description": "The manufacturer must maintain a Hazard Log recording all identified hazards, their risk assessment, control measures, residual risk, and status. The Hazard Log must be kept current throughout the product lifecycle.",
+      "description_nl": "The manufacturer must maintain a Hazard Log recording all identified hazards, their risk assessment, control measures, residual risk, and status. The Hazard Log must be kept current throughout the product lifecycle.",
+      "category": "Hazard Management",
+      "subcategory": "Hazard log",
+      "level": null,
+      "iso_mapping": null,
+      "implementation_guidance": "Create and maintain a Hazard Log. Record hazard descriptions, initial risk, controls, residual risk, and ownership. Review the log at each release and when incidents occur.",
+      "verification_guidance": "Review Hazard Log completeness and currency. Verify all hazards have risk assessments. Check review dates.",
+      "source_url": "https://digital.nhs.uk/data-and-information/information-standards/information-standards-and-data-collections-including-extractions/publications-and-notifications/standards-and-collections/dcb0129-clinical-risk-management-its-application-in-the-manufacture-of-health-it-systems"
+    },
+    {
+      "control_number": "7",
+      "title": "Clinical risk management during deployment",
+      "title_nl": "Clinical risk management during deployment",
+      "description": "The manufacturer must ensure clinical safety is addressed during deployment, including providing deployment guidance, training materials, and safety information to deploying organisations.",
+      "description_nl": "The manufacturer must ensure clinical safety is addressed during deployment, including providing deployment guidance, training materials, and safety information to deploying organisations.",
+      "category": "Deployment",
+      "subcategory": "Deployment safety",
+      "level": null,
+      "iso_mapping": null,
+      "implementation_guidance": "Produce deployment guidance addressing clinical safety. Provide training materials for deploying organisations. Share relevant hazard information. Support the deploying organisation's DCB0160 assessment.",
+      "verification_guidance": "Review deployment guidance. Verify safety information sharing. Check training materials.",
+      "source_url": "https://digital.nhs.uk/data-and-information/information-standards/information-standards-and-data-collections-including-extractions/publications-and-notifications/standards-and-collections/dcb0129-clinical-risk-management-its-application-in-the-manufacture-of-health-it-systems"
+    }
+  ]
+}

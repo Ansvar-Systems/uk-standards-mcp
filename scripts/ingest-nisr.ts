@@ -1,0 +1,132 @@
+// scripts/ingest-nisr.ts
+// UK NIS Regulations 2018 — Network and Information Systems Regulations requirements
+// Source: https://www.legislation.gov.uk/uksi/2018/506
+// Version: 2018 (as amended 2022)
+
+import { writeFileSync, mkdirSync } from 'node:fs';
+import { join, dirname } from 'node:path';
+import { fileURLToPath } from 'node:url';
+
+const __dirname = dirname(fileURLToPath(import.meta.url));
+const OUTPUT_DIR = join(__dirname, '..', 'data', 'extracted');
+mkdirSync(OUTPUT_DIR, { recursive: true });
+
+const data = {
+  framework: {
+    id: 'nisr',
+    name: 'UK NIS Regulations 2018',
+    name_nl: 'UK NIS Regulations 2018',
+    issuing_body: 'HM Government / DCMS',
+    version: '2022 amendment',
+    effective_date: '2018-05-10',
+    scope: 'Requirements for operators of essential services (OES) and relevant digital service providers (RDSPs) to manage risks to network and information systems security. Sectors: energy, transport, health, water, digital infrastructure.',
+    scope_sectors: ['energy', 'transport', 'healthcare', 'water', 'digital_infrastructure'],
+    structure_description: 'Requirements for OES and RDSPs covering security duties, incident reporting, and competent authority oversight. Assessed via the NCSC CAF.',
+    source_url: 'https://www.legislation.gov.uk/uksi/2018/506',
+    license: 'Open Government Licence v3.0',
+    language: 'en',
+  },
+  controls: [
+    {
+      control_number: '1',
+      title: 'Duty to take appropriate and proportionate security measures',
+      title_nl: 'Duty to take appropriate and proportionate security measures',
+      description: 'Operators of essential services must take appropriate and proportionate technical and organisational measures to manage the risks posed to the security of the network and information systems on which their essential service relies (Regulation 10).',
+      description_nl: 'Operators of essential services must take appropriate and proportionate technical and organisational measures to manage the risks posed to the security of the network and information systems on which their essential service relies (Regulation 10).',
+      category: 'OES Security Duties',
+      subcategory: 'Security measures',
+      level: null,
+      iso_mapping: '6.1',
+      implementation_guidance: 'Implement the NCSC CAF principles as the primary assessment mechanism. Address all four CAF objectives: managing security risk, protecting against cyber attack, detecting events, and minimising impact.',
+      verification_guidance: 'Assess against NCSC CAF. Review competent authority assessment results.',
+      source_url: 'https://www.legislation.gov.uk/uksi/2018/506/regulation/10',
+    },
+    {
+      control_number: '2',
+      title: 'Duty to prevent and minimise impact of incidents',
+      title_nl: 'Duty to prevent and minimise impact of incidents',
+      description: 'The security measures taken by OES must prevent and minimise the impact of incidents affecting the security of their network and information systems on the continuity of the essential service (Regulation 10(2)).',
+      description_nl: 'The security measures taken by OES must prevent and minimise the impact of incidents affecting the security of their network and information systems on the continuity of the essential service (Regulation 10(2)).',
+      category: 'OES Security Duties',
+      subcategory: 'Incident prevention',
+      level: null,
+      iso_mapping: 'A.16.1.1',
+      implementation_guidance: 'Implement incident response plans. Deploy monitoring and detection capabilities. Maintain business continuity plans. Test plans through exercises.',
+      verification_guidance: 'Review incident response and business continuity plans. Verify testing frequency. Check monitoring capabilities.',
+      source_url: 'https://www.legislation.gov.uk/uksi/2018/506/regulation/10',
+    },
+    {
+      control_number: '3',
+      title: 'Incident reporting to competent authority',
+      title_nl: 'Incident reporting to competent authority',
+      description: 'OES must notify the relevant competent authority without undue delay of any incident having a significant impact on the continuity of the essential service. The notification must include information to assess the cross-border impact (Regulation 11).',
+      description_nl: 'OES must notify the relevant competent authority without undue delay of any incident having a significant impact on the continuity of the essential service. The notification must include information to assess the cross-border impact (Regulation 11).',
+      category: 'Incident Reporting',
+      subcategory: 'OES reporting',
+      level: null,
+      iso_mapping: 'A.16.1.2',
+      implementation_guidance: 'Establish reporting channels to the relevant competent authority. Define thresholds for reportable incidents. Train staff on reporting obligations. Report without undue delay.',
+      verification_guidance: 'Verify reporting channel is established. Review incident reporting thresholds. Test reporting process.',
+      source_url: 'https://www.legislation.gov.uk/uksi/2018/506/regulation/11',
+    },
+    {
+      control_number: '4',
+      title: 'RDSP security requirements',
+      title_nl: 'RDSP security requirements',
+      description: 'Relevant digital service providers (online marketplaces, search engines, cloud computing services) must take appropriate and proportionate security measures to manage risks to their network and information systems (Regulation 12).',
+      description_nl: 'Relevant digital service providers (online marketplaces, search engines, cloud computing services) must take appropriate and proportionate security measures to manage risks to their network and information systems (Regulation 12).',
+      category: 'RDSP Duties',
+      subcategory: 'Security measures',
+      level: null,
+      iso_mapping: '6.1',
+      implementation_guidance: 'Implement security measures addressing: security of systems and facilities, incident handling, business continuity management, monitoring/auditing/testing, and compliance with international standards.',
+      verification_guidance: 'Review security measures against the five elements specified in the regulation.',
+      source_url: 'https://www.legislation.gov.uk/uksi/2018/506/regulation/12',
+    },
+    {
+      control_number: '5',
+      title: 'RDSP incident reporting',
+      title_nl: 'RDSP incident reporting',
+      description: 'RDSPs must notify the ICO without undue delay of any incident having a substantial impact on the provision of their digital service. Impact is assessed by reference to the number of users affected, duration, geographic extent, service disruption, and economic impact.',
+      description_nl: 'RDSPs must notify the ICO without undue delay of any incident having a substantial impact on the provision of their digital service. Impact is assessed by reference to the number of users affected, duration, geographic extent, service disruption, and economic impact.',
+      category: 'Incident Reporting',
+      subcategory: 'RDSP reporting',
+      level: null,
+      iso_mapping: 'A.16.1.2',
+      implementation_guidance: 'Establish incident reporting to the ICO. Define thresholds based on: user numbers, duration, geographic scope, disruption extent, and economic impact.',
+      verification_guidance: 'Verify ICO reporting channel. Review threshold definitions. Test reporting process.',
+      source_url: 'https://www.legislation.gov.uk/uksi/2018/506/regulation/13',
+    },
+    {
+      control_number: '6',
+      title: 'Cooperation with competent authority',
+      title_nl: 'Cooperation with competent authority',
+      description: 'OES and RDSPs must cooperate with their competent authority, including providing information requested for assessment purposes, allowing inspections, and complying with enforcement notices (Regulations 15-18).',
+      description_nl: 'OES and RDSPs must cooperate with their competent authority, including providing information requested for assessment purposes, allowing inspections, and complying with enforcement notices (Regulations 15-18).',
+      category: 'Oversight',
+      subcategory: 'Regulatory cooperation',
+      level: null,
+      iso_mapping: '9.2',
+      implementation_guidance: 'Designate a point of contact for the competent authority. Respond to information requests promptly. Facilitate inspections and assessments. Track and complete enforcement notice requirements.',
+      verification_guidance: 'Verify designated contact is assigned. Review response times to regulatory requests.',
+      source_url: 'https://www.legislation.gov.uk/uksi/2018/506/regulation/15',
+    },
+    {
+      control_number: '7',
+      title: 'Penalties for non-compliance',
+      title_nl: 'Penalties for non-compliance',
+      description: 'Competent authorities can issue enforcement notices and impose financial penalties for non-compliance. Maximum penalty is 17 million GBP for OES failing to implement appropriate security measures or failing to report incidents.',
+      description_nl: 'Competent authorities can issue enforcement notices and impose financial penalties for non-compliance. Maximum penalty is 17 million GBP for OES failing to implement appropriate security measures or failing to report incidents.',
+      category: 'Oversight',
+      subcategory: 'Enforcement',
+      level: null,
+      iso_mapping: null,
+      implementation_guidance: 'Ensure compliance with all NIS Regulation duties. Monitor for competent authority communications. Address any enforcement notices promptly.',
+      verification_guidance: 'Review compliance status. Verify no outstanding enforcement actions. Track remediation of any identified non-compliance.',
+      source_url: 'https://www.legislation.gov.uk/uksi/2018/506/regulation/18',
+    },
+  ],
+};
+
+writeFileSync(join(OUTPUT_DIR, 'nisr.json'), JSON.stringify(data, null, 2));
+console.log(`Wrote ${data.controls.length} controls for ${data.framework.id}`);

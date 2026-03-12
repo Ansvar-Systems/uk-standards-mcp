@@ -1,0 +1,90 @@
+{
+  "framework": {
+    "id": "nhs-dcb0160",
+    "name": "DCB0160 Clinical Risk Management (Health Organisations)",
+    "name_nl": "DCB0160 Clinical Risk Management (Health Organisations)",
+    "issuing_body": "NHS England",
+    "version": "2023",
+    "effective_date": "2023-01-01",
+    "scope": "Standard for health organisations deploying and using health IT systems, requiring them to apply clinical risk management to ensure patient safety during deployment, use, and decommissioning.",
+    "scope_sectors": [
+      "healthcare"
+    ],
+    "structure_description": "Requirements for deploying organisations: CSO appointment, clinical risk management for deployment, ongoing risk monitoring, incident management, and decommissioning safety",
+    "source_url": "https://digital.nhs.uk/data-and-information/information-standards/information-standards-and-data-collections-including-extractions/publications-and-notifications/standards-and-collections/dcb0160-clinical-risk-management-its-application-in-the-deployment-and-use-of-health-it-systems",
+    "license": "Open Government Licence v3.0",
+    "language": "en"
+  },
+  "controls": [
+    {
+      "control_number": "1",
+      "title": "Appoint a Clinical Safety Officer (deploying organisation)",
+      "title_nl": "Appoint a Clinical Safety Officer (deploying organisation)",
+      "description": "The health organisation must appoint a suitably qualified Clinical Safety Officer responsible for clinical risk management during the deployment, use, and decommissioning of health IT systems.",
+      "description_nl": "The health organisation must appoint a suitably qualified Clinical Safety Officer responsible for clinical risk management during the deployment, use, and decommissioning of health IT systems.",
+      "category": "Governance",
+      "subcategory": "Clinical Safety Officer",
+      "level": null,
+      "iso_mapping": "5.3",
+      "implementation_guidance": "Appoint a registered health professional as CSO. Ensure clinical safety training is completed. Define CSO responsibilities covering deployment, use, and decommissioning phases.",
+      "verification_guidance": "Verify CSO appointment and qualifications. Check training completion.",
+      "source_url": "https://digital.nhs.uk/data-and-information/information-standards/information-standards-and-data-collections-including-extractions/publications-and-notifications/standards-and-collections/dcb0160-clinical-risk-management-its-application-in-the-deployment-and-use-of-health-it-systems"
+    },
+    {
+      "control_number": "2",
+      "title": "Conduct deployment clinical risk assessment",
+      "title_nl": "Conduct deployment clinical risk assessment",
+      "description": "Before deploying a health IT system, the organisation must conduct a clinical risk assessment specific to the deployment context, considering local workflows, integration points, data migration, and training needs.",
+      "description_nl": "Before deploying a health IT system, the organisation must conduct a clinical risk assessment specific to the deployment context, considering local workflows, integration points, data migration, and training needs.",
+      "category": "Deployment",
+      "subcategory": "Deployment risk assessment",
+      "level": null,
+      "iso_mapping": "6.1",
+      "implementation_guidance": "Conduct clinical risk assessment before deployment. Consider local clinical workflows, data migration risks, integration with existing systems, and staff training requirements. Document in the organisation hazard log.",
+      "verification_guidance": "Review deployment risk assessment. Verify local context is considered. Check hazard log updates.",
+      "source_url": "https://digital.nhs.uk/data-and-information/information-standards/information-standards-and-data-collections-including-extractions/publications-and-notifications/standards-and-collections/dcb0160-clinical-risk-management-its-application-in-the-deployment-and-use-of-health-it-systems"
+    },
+    {
+      "control_number": "3",
+      "title": "Monitor clinical safety during live use",
+      "title_nl": "Monitor clinical safety during live use",
+      "description": "During live use, the organisation must monitor the health IT system for clinical safety issues. This includes tracking safety incidents, reviewing hazard log entries, and assessing the impact of system changes.",
+      "description_nl": "During live use, the organisation must monitor the health IT system for clinical safety issues. This includes tracking safety incidents, reviewing hazard log entries, and assessing the impact of system changes.",
+      "category": "Ongoing Use",
+      "subcategory": "Safety monitoring",
+      "level": null,
+      "iso_mapping": "A.12.4.1",
+      "implementation_guidance": "Establish clinical safety incident reporting. Review hazard log regularly. Assess clinical safety impact of system updates. Monitor for emerging hazards.",
+      "verification_guidance": "Review incident reports. Check hazard log review dates. Verify change impact assessments.",
+      "source_url": "https://digital.nhs.uk/data-and-information/information-standards/information-standards-and-data-collections-including-extractions/publications-and-notifications/standards-and-collections/dcb0160-clinical-risk-management-its-application-in-the-deployment-and-use-of-health-it-systems"
+    },
+    {
+      "control_number": "4",
+      "title": "Clinical safety incident management",
+      "title_nl": "Clinical safety incident management",
+      "description": "The organisation must have processes to identify, report, investigate, and learn from clinical safety incidents involving health IT systems. Incidents must be reported to the manufacturer and relevant authorities.",
+      "description_nl": "The organisation must have processes to identify, report, investigate, and learn from clinical safety incidents involving health IT systems. Incidents must be reported to the manufacturer and relevant authorities.",
+      "category": "Ongoing Use",
+      "subcategory": "Incident management",
+      "level": null,
+      "iso_mapping": "A.16.1.1",
+      "implementation_guidance": "Establish clinical safety incident reporting processes. Report incidents to the IT system manufacturer. Investigate incidents and update the hazard log. Share learning with relevant parties.",
+      "verification_guidance": "Review incident management process. Check incident reporting to manufacturers. Verify learning from incidents.",
+      "source_url": "https://digital.nhs.uk/data-and-information/information-standards/information-standards-and-data-collections-including-extractions/publications-and-notifications/standards-and-collections/dcb0160-clinical-risk-management-its-application-in-the-deployment-and-use-of-health-it-systems"
+    },
+    {
+      "control_number": "5",
+      "title": "Clinical safety during decommissioning",
+      "title_nl": "Clinical safety during decommissioning",
+      "description": "When decommissioning a health IT system, the organisation must assess and manage clinical risks arising from the transition. This includes data migration, loss of functionality, and impact on clinical workflows.",
+      "description_nl": "When decommissioning a health IT system, the organisation must assess and manage clinical risks arising from the transition. This includes data migration, loss of functionality, and impact on clinical workflows.",
+      "category": "Decommissioning",
+      "subcategory": "Decommission safety",
+      "level": null,
+      "iso_mapping": null,
+      "implementation_guidance": "Conduct clinical risk assessment before decommissioning. Plan data migration with safety controls. Assess impact on clinical workflows. Ensure continuity of clinical functions during transition.",
+      "verification_guidance": "Review decommissioning risk assessment. Verify data migration safety. Check workflow continuity.",
+      "source_url": "https://digital.nhs.uk/data-and-information/information-standards/information-standards-and-data-collections-including-extractions/publications-and-notifications/standards-and-collections/dcb0160-clinical-risk-management-its-application-in-the-deployment-and-use-of-health-it-systems"
+    }
+  ]
+}

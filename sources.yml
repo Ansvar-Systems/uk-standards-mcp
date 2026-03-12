@@ -128,3 +128,465 @@ sources:
       item_count: 12
     languages:
       - "en"
+
+  - name: "NCSC Cyber Essentials Plus"
+    authority: "NCSC-UK"
+    official_url: "https://www.ncsc.gov.uk/cyberessentials/overview"
+    api_url: null
+    retrieval_method: "manual_extraction"
+    format: "HTML"
+    authentication: "none"
+    update_frequency: "annual"
+    version: "Willow"
+    effective_date: "2024-04-01"
+    license:
+      type: "Open Government Licence v3.0"
+      url: "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/"
+      summary: "Open Government Licence — free to use with attribution"
+    coverage:
+      scope: "13 hands-on verification requirements for CE Plus certification"
+      version: "Willow (2024)"
+      item_count: 13
+    languages:
+      - "en"
+
+  - name: "NCSC Supply Chain Security Guidance"
+    authority: "NCSC-UK"
+    official_url: "https://www.ncsc.gov.uk/collection/supply-chain-security"
+    api_url: null
+    retrieval_method: "manual_extraction"
+    format: "HTML"
+    authentication: "none"
+    update_frequency: "annual"
+    version: "2024"
+    effective_date: "2024-01-01"
+    license:
+      type: "Open Government Licence v3.0"
+      url: "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/"
+      summary: "Open Government Licence — free to use with attribution"
+    coverage:
+      scope: "12 principles for managing supply chain cyber risk"
+      version: "2024"
+      item_count: 12
+    languages:
+      - "en"
+
+  - name: "NCSC Zero Trust Architecture"
+    authority: "NCSC-UK"
+    official_url: "https://www.ncsc.gov.uk/collection/zero-trust-architecture"
+    api_url: null
+    retrieval_method: "manual_extraction"
+    format: "HTML"
+    authentication: "none"
+    update_frequency: "annual"
+    version: "2024"
+    effective_date: "2024-01-01"
+    license:
+      type: "Open Government Licence v3.0"
+      url: "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/"
+      summary: "Open Government Licence — free to use with attribution"
+    coverage:
+      scope: "8 principles for zero trust network architectures"
+      version: "2024"
+      item_count: 8
+    languages:
+      - "en"
+
+  - name: "NCSC Email Security and Anti-Spoofing"
+    authority: "NCSC-UK"
+    official_url: "https://www.ncsc.gov.uk/collection/email-security-and-anti-spoofing"
+    api_url: null
+    retrieval_method: "manual_extraction"
+    format: "HTML"
+    authentication: "none"
+    update_frequency: "annual"
+    version: "2024"
+    effective_date: "2024-01-01"
+    license:
+      type: "Open Government Licence v3.0"
+      url: "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/"
+      summary: "Open Government Licence — free to use with attribution"
+    coverage:
+      scope: "8 controls for email authentication, anti-spoofing, and inbound filtering"
+      version: "2024"
+      item_count: 8
+    languages:
+      - "en"
+
+  - name: "NCSC TLS Configuration Guidance"
+    authority: "NCSC-UK"
+    official_url: "https://www.ncsc.gov.uk/guidance/tls-external-facing-services"
+    api_url: null
+    retrieval_method: "manual_extraction"
+    format: "HTML"
+    authentication: "none"
+    update_frequency: "annual"
+    version: "2024"
+    effective_date: "2024-01-01"
+    license:
+      type: "Open Government Licence v3.0"
+      url: "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/"
+      summary: "Open Government Licence — free to use with attribution"
+    coverage:
+      scope: "7 controls for TLS protocol versions, cipher suites, and certificate management"
+      version: "2024"
+      item_count: 7
+    languages:
+      - "en"
+
+  - name: "NCSC Password Administration for System Owners"
+    authority: "NCSC-UK"
+    official_url: "https://www.ncsc.gov.uk/collection/passwords"
+    api_url: null
+    retrieval_method: "manual_extraction"
+    format: "HTML"
+    authentication: "none"
+    update_frequency: "annual"
+    version: "2024"
+    effective_date: "2024-01-01"
+    license:
+      type: "Open Government Licence v3.0"
+      url: "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/"
+      summary: "Open Government Licence — free to use with attribution"
+    coverage:
+      scope: "8 controls for password policy, storage, and authentication mechanisms"
+      version: "2024"
+      item_count: 8
+    languages:
+      - "en"
+
+  - name: "NCSC Secure Design Principles"
+    authority: "NCSC-UK"
+    official_url: "https://www.ncsc.gov.uk/collection/cyber-security-design-principles"
+    api_url: null
+    retrieval_method: "manual_extraction"
+    format: "HTML"
+    authentication: "none"
+    update_frequency: "annual"
+    version: "2024"
+    effective_date: "2024-01-01"
+    license:
+      type: "Open Government Licence v3.0"
+      url: "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/"
+      summary: "Open Government Licence — free to use with attribution"
+    coverage:
+      scope: "12 secure-by-design principles across architecture, configuration, and deployment"
+      version: "2024"
+      item_count: 12
+    languages:
+      - "en"
+
+  - name: "NCSC Identity and Access Management Guidance"
+    authority: "NCSC-UK"
+    official_url: "https://www.ncsc.gov.uk/guidance/introduction-identity-and-access-management"
+    api_url: null
+    retrieval_method: "manual_extraction"
+    format: "HTML"
+    authentication: "none"
+    update_frequency: "annual"
+    version: "2024"
+    effective_date: "2024-01-01"
+    license:
+      type: "Open Government Licence v3.0"
+      url: "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/"
+      summary: "Open Government Licence — free to use with attribution"
+    coverage:
+      scope: "8 controls for identity lifecycle, authentication, and access management"
+      version: "2024"
+      item_count: 8
+    languages:
+      - "en"
+
+  - name: "NCSC Logging and Protective Monitoring"
+    authority: "NCSC-UK"
+    official_url: "https://www.ncsc.gov.uk/guidance/introduction-logging-security-purposes"
+    api_url: null
+    retrieval_method: "manual_extraction"
+    format: "HTML"
+    authentication: "none"
+    update_frequency: "annual"
+    version: "2024"
+    effective_date: "2024-01-01"
+    license:
+      type: "Open Government Licence v3.0"
+      url: "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/"
+      summary: "Open Government Licence — free to use with attribution"
+    coverage:
+      scope: "10 controls for security logging, log management, and protective monitoring"
+      version: "2024"
+      item_count: 10
+    languages:
+      - "en"
+
+  - name: "NCSC Incident Management Guidance"
+    authority: "NCSC-UK"
+    official_url: "https://www.ncsc.gov.uk/guidance/incident-management"
+    api_url: null
+    retrieval_method: "manual_extraction"
+    format: "HTML"
+    authentication: "none"
+    update_frequency: "annual"
+    version: "2024"
+    effective_date: "2024-01-01"
+    license:
+      type: "Open Government Licence v3.0"
+      url: "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/"
+      summary: "Open Government Licence — free to use with attribution"
+    coverage:
+      scope: "10 controls for incident response planning, detection, triage, and recovery"
+      version: "2024"
+      item_count: 10
+    languages:
+      - "en"
+
+  - name: "NCSC BYOD Guidance"
+    authority: "NCSC-UK"
+    official_url: "https://www.ncsc.gov.uk/collection/device-security-guidance/bring-your-own-device"
+    api_url: null
+    retrieval_method: "manual_extraction"
+    format: "HTML"
+    authentication: "none"
+    update_frequency: "annual"
+    version: "2024"
+    effective_date: "2024-01-01"
+    license:
+      type: "Open Government Licence v3.0"
+      url: "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/"
+      summary: "Open Government Licence — free to use with attribution"
+    coverage:
+      scope: "6 controls for managing personal devices accessing corporate data"
+      version: "2024"
+      item_count: 6
+    languages:
+      - "en"
+
+  - name: "GDS Technology Code of Practice"
+    authority: "Government Digital Service (GDS)"
+    official_url: "https://www.gov.uk/guidance/the-technology-code-of-practice"
+    api_url: null
+    retrieval_method: "manual_extraction"
+    format: "HTML"
+    authentication: "none"
+    update_frequency: "annual"
+    version: "2021"
+    effective_date: "2021-01-01"
+    license:
+      type: "Open Government Licence v3.0"
+      url: "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/"
+      summary: "Open Government Licence — free to use with attribution"
+    coverage:
+      scope: "12 points for government technology procurement and implementation"
+      version: "2021"
+      item_count: 12
+    languages:
+      - "en"
+
+  - name: "GDS Service Standard"
+    authority: "Government Digital Service (GDS)"
+    official_url: "https://www.gov.uk/service-manual/service-standard"
+    api_url: null
+    retrieval_method: "manual_extraction"
+    format: "HTML"
+    authentication: "none"
+    update_frequency: "annual"
+    version: "2024"
+    effective_date: "2024-01-01"
+    license:
+      type: "Open Government Licence v3.0"
+      url: "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/"
+      summary: "Open Government Licence — free to use with attribution"
+    coverage:
+      scope: "14 points for building and running government digital services"
+      version: "2024"
+      item_count: 14
+    languages:
+      - "en"
+
+  - name: "HMG Minimum Cyber Security Standard"
+    authority: "Cabinet Office / HM Government"
+    official_url: "https://www.gov.uk/government/publications/the-minimum-cyber-security-standard"
+    api_url: null
+    retrieval_method: "manual_extraction"
+    format: "HTML"
+    authentication: "none"
+    update_frequency: "annual"
+    version: "2018"
+    effective_date: "2018-06-01"
+    license:
+      type: "Open Government Licence v3.0"
+      url: "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/"
+      summary: "Open Government Licence — free to use with attribution"
+    coverage:
+      scope: "10 mandatory requirements across identify, protect, detect, respond, recover"
+      version: "2018"
+      item_count: 10
+    languages:
+      - "en"
+
+  - name: "Cyber Governance Code of Practice"
+    authority: "Department for Science, Innovation and Technology (DSIT)"
+    official_url: "https://www.gov.uk/government/publications/cyber-governance-code-of-practice"
+    api_url: null
+    retrieval_method: "manual_extraction"
+    format: "HTML"
+    authentication: "none"
+    update_frequency: "annual"
+    version: "2025"
+    effective_date: "2025-01-01"
+    license:
+      type: "Open Government Licence v3.0"
+      url: "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/"
+      summary: "Open Government Licence — free to use with attribution"
+    coverage:
+      scope: "9 actions for boards and directors to govern cyber risk"
+      version: "2025"
+      item_count: 9
+    languages:
+      - "en"
+
+  - name: "UK NIS Regulations 2018"
+    authority: "Department for Science, Innovation and Technology (DSIT)"
+    official_url: "https://www.legislation.gov.uk/uksi/2018/506/contents/made"
+    api_url: null
+    retrieval_method: "manual_extraction"
+    format: "HTML"
+    authentication: "none"
+    update_frequency: "5-year"
+    version: "2018 (as amended 2022)"
+    effective_date: "2018-05-10"
+    license:
+      type: "Open Government Licence v3.0"
+      url: "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/"
+      summary: "Open Government Licence — free to use with attribution"
+    coverage:
+      scope: "7 key regulatory obligations for operators of essential services and digital service providers"
+      version: "2018 (amended 2022)"
+      item_count: 7
+    languages:
+      - "en"
+
+  - name: "OFCOM Telecoms Security Code of Practice"
+    authority: "OFCOM"
+    official_url: "https://www.ofcom.org.uk/phones-and-broadband/telecoms-security"
+    api_url: null
+    retrieval_method: "manual_extraction"
+    format: "PDF"
+    authentication: "none"
+    update_frequency: "annual"
+    version: "2022"
+    effective_date: "2022-10-01"
+    license:
+      type: "Open Government Licence v3.0"
+      url: "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/"
+      summary: "Open Government Licence — free to use with attribution"
+    coverage:
+      scope: "8 measures for telecoms providers under the Telecommunications (Security) Act 2021"
+      version: "2022"
+      item_count: 8
+    languages:
+      - "en"
+
+  - name: "NHS DCB0129 Clinical Risk Management (Manufacturers)"
+    authority: "NHS Digital / DHSC"
+    official_url: "https://digital.nhs.uk/data-and-information/information-standards/information-standards-and-data-collections-including-extractions/publications-and-notifications/standards-and-collections/dcb0129-clinical-risk-management-its-application-in-the-manufacture-of-health-it-systems"
+    api_url: null
+    retrieval_method: "manual_extraction"
+    format: "PDF"
+    authentication: "none"
+    update_frequency: "5-year"
+    version: "4.2"
+    effective_date: "2020-10-01"
+    license:
+      type: "Open Government Licence v3.0"
+      url: "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/"
+      summary: "Open Government Licence — free to use with attribution"
+    coverage:
+      scope: "7 requirements for clinical risk management in health IT manufacturing"
+      version: "4.2 (2020)"
+      item_count: 7
+    languages:
+      - "en"
+
+  - name: "NHS DCB0160 Clinical Risk Management (Health Organisations)"
+    authority: "NHS Digital / DHSC"
+    official_url: "https://digital.nhs.uk/data-and-information/information-standards/information-standards-and-data-collections-including-extractions/publications-and-notifications/standards-and-collections/dcb0160-clinical-risk-management-its-application-in-the-deployment-and-use-of-health-it-systems"
+    api_url: null
+    retrieval_method: "manual_extraction"
+    format: "PDF"
+    authentication: "none"
+    update_frequency: "5-year"
+    version: "3.1"
+    effective_date: "2020-10-01"
+    license:
+      type: "Open Government Licence v3.0"
+      url: "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/"
+      summary: "Open Government Licence — free to use with attribution"
+    coverage:
+      scope: "5 requirements for clinical risk management in health IT deployment"
+      version: "3.1 (2020)"
+      item_count: 5
+    languages:
+      - "en"
+
+  - name: "PRA Operational Resilience (SS1/21)"
+    authority: "Prudential Regulation Authority (PRA) / Bank of England"
+    official_url: "https://www.bankofengland.co.uk/prudential-regulation/publication/2021/march/operational-resilience-ss"
+    api_url: null
+    retrieval_method: "manual_extraction"
+    format: "PDF"
+    authentication: "none"
+    update_frequency: "annual"
+    version: "SS1/21"
+    effective_date: "2022-03-31"
+    license:
+      type: "Open Government Licence v3.0"
+      url: "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/"
+      summary: "Open Government Licence — free to use with attribution"
+    coverage:
+      scope: "8 requirements for important business services, impact tolerances, and scenario testing"
+      version: "SS1/21"
+      item_count: 8
+    languages:
+      - "en"
+
+  - name: "FCA SYSC 13 Operational Risk"
+    authority: "Financial Conduct Authority (FCA)"
+    official_url: "https://www.handbook.fca.org.uk/handbook/SYSC/13.html"
+    api_url: null
+    retrieval_method: "manual_extraction"
+    format: "HTML"
+    authentication: "none"
+    update_frequency: "annual"
+    version: "2024"
+    effective_date: "2024-01-01"
+    license:
+      type: "Open Government Licence v3.0"
+      url: "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/"
+      summary: "Open Government Licence — free to use with attribution"
+    coverage:
+      scope: "7 requirements for operational risk management in FCA-regulated firms"
+      version: "2024"
+      item_count: 7
+    languages:
+      - "en"
+
+  - name: "Def Stan 05-138 Cyber Security for Defence Suppliers"
+    authority: "Ministry of Defence (MOD)"
+    official_url: "https://www.gov.uk/government/publications/defence-standard-05-138"
+    api_url: null
+    retrieval_method: "manual_extraction"
+    format: "PDF"
+    authentication: "none"
+    update_frequency: "5-year"
+    version: "Issue 3"
+    effective_date: "2024-01-01"
+    license:
+      type: "Open Government Licence v3.0"
+      url: "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/"
+      summary: "Open Government Licence — free to use with attribution"
+    coverage:
+      scope: "8 tiered requirements for defence contractors handling MOD information"
+      version: "Issue 3 (2024)"
+      item_count: 8
+    languages:
+      - "en"

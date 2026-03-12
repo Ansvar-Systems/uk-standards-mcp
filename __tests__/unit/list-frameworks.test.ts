@@ -3,7 +3,7 @@ import { describe, it, expect } from 'vitest';
 import { handleListFrameworks } from '../../src/tools/list-frameworks.js';
 
 describe('handleListFrameworks', () => {
-  it('returns a Markdown table containing all 6 frameworks with control counts', () => {
+  it('returns a Markdown table containing all frameworks with control counts', () => {
     const result = handleListFrameworks();
 
     expect(result.isError).toBeFalsy();
@@ -19,6 +19,12 @@ describe('handleListFrameworks', () => {
     expect(text).toContain('ncsc-10steps');
     expect(text).toContain('ncsc-board');
 
+    // New framework IDs present
+    expect(text).toContain('ncsc-zt');
+    expect(text).toContain('hmg-mcss');
+    expect(text).toContain('pra-opres');
+    expect(text).toContain('mod-defstan');
+
     // Framework names present
     expect(text).toContain('Cyber Assessment Framework');
     expect(text).toContain('Cyber Essentials');
@@ -33,7 +39,7 @@ describe('handleListFrameworks', () => {
     // Markdown table structure
     expect(text).toContain('| ID |');
 
-    // 6 frameworks
-    expect(text).toContain('6 frameworks');
+    // 28 frameworks
+    expect(text).toContain('28 frameworks');
   });
 });

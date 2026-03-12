@@ -5,7 +5,7 @@
 [![License](https://img.shields.io/badge/license-Apache--2.0-blue)](LICENSE)
 [![MCP Registry](https://img.shields.io/badge/MCP%20Registry-ansvar.ai%2Fmcp-blue)](https://ansvar.ai/mcp)
 
-Structured access to UK government cybersecurity standards: NCSC Cyber Essentials, Cyber Assessment Framework (CAF), Cloud Security Principles, 10 Steps to Cyber Security, NHS Data Security and Protection Toolkit (DSPT), and NCSC Board Toolkit. FTS5 search, ISO 27002 cross-references, and sector-based filtering.
+Structured access to 28 UK government cybersecurity standards and frameworks: NCSC publications (Cyber Essentials, CAF, Cloud Security, Zero Trust, and 13 more), GDS standards, HMG Minimum Cyber Security Standard, NIS Regulations, NHS clinical risk management, PRA/FCA financial resilience, OFCOM telecoms security, and MOD Def Stan 05-138. FTS5 search, ISO 27002 cross-references, and sector-based filtering across government, healthcare, finance, energy, telecoms, and defence.
 
 Part of the [Ansvar MCP Network](https://ansvar.ai/mcp) — specialist MCP servers for compliance and security intelligence.
 
@@ -73,16 +73,45 @@ Add to your MCP client config:
 
 ## What's Included
 
+### NCSC Publications (17 frameworks)
+
+| Source | Items | Refresh |
+|--------|-------|---------|
+| Cyber Essentials (Willow) | 16 controls | Annual |
+| Cyber Essentials Plus | 13 controls | Annual |
+| Cyber Assessment Framework (CAF) v3.2 | 36 controls | Annual |
+| Cloud Security Principles | 14 principles | Annual |
+| 10 Steps to Cyber Security | 23 controls | Annual |
+| Board Toolkit | 12 controls | Annual |
+| Supply Chain Security Guidance | 12 principles | Annual |
+| Zero Trust Architecture | 8 principles | Annual |
+| Email Security and Anti-Spoofing | 8 controls | Annual |
+| TLS Configuration Guidance | 7 controls | Annual |
+| Password Administration | 8 controls | Annual |
+| Secure Design Principles | 12 principles | Annual |
+| Identity and Access Management | 8 controls | Annual |
+| Logging and Protective Monitoring | 10 controls | Annual |
+| Incident Management | 10 controls | Annual |
+| BYOD Guidance | 6 controls | Annual |
+| NHS DSPT | 30 assertions | Annual |
+
+### Government, Regulatory, Financial, Healthcare, Defence (11 frameworks)
+
 | Source | Authority | Items | Refresh |
 |--------|-----------|-------|---------|
-| NCSC Cyber Essentials (Willow) | NCSC-UK | 16 controls | Annual |
-| NCSC Cyber Assessment Framework (CAF) v3.2 | NCSC-UK | 36 controls | Annual |
-| NCSC Cloud Security Principles | NCSC-UK | 14 principles | Annual |
-| NCSC 10 Steps to Cyber Security | NCSC-UK | 23 controls | Annual |
-| NHS Data Security and Protection Toolkit (DSPT) | NHS Digital / DHSC | 30 assertions | Annual |
-| NCSC Board Toolkit | NCSC-UK | 12 controls | Annual |
+| GDS Technology Code of Practice | GDS | 12 points | Annual |
+| GDS Service Standard | GDS | 14 points | Annual |
+| HMG Minimum Cyber Security Standard | Cabinet Office | 10 requirements | Annual |
+| Cyber Governance Code of Practice | DSIT | 9 actions | Annual |
+| UK NIS Regulations 2018 | DSIT | 7 obligations | 5-year |
+| OFCOM Telecoms Security Code | OFCOM | 8 measures | Annual |
+| NHS DCB0129 (Clinical Risk - Manufacturers) | NHS Digital | 7 requirements | 5-year |
+| NHS DCB0160 (Clinical Risk - Health Orgs) | NHS Digital | 5 requirements | 5-year |
+| PRA Operational Resilience (SS1/21) | PRA / BoE | 8 requirements | Annual |
+| FCA SYSC 13 Operational Risk | FCA | 7 requirements | Annual |
+| Def Stan 05-138 (Defence Suppliers) | MOD | 8 requirements | 5-year |
 
-**Total:** 131 controls and requirements across 6 frameworks.
+**Total:** 328 controls and requirements across 28 frameworks.
 
 For full coverage details, see [COVERAGE.md](COVERAGE.md).
 
@@ -92,7 +121,7 @@ For full coverage details, see [COVERAGE.md](COVERAGE.md).
 
 | Tool | Category | Description |
 |------|----------|-------------|
-| `search_controls` | Search | Full-text search across all 6 frameworks. Returns controls ranked by FTS5 relevance. |
+| `search_controls` | Search | Full-text search across all 28 frameworks. Returns controls ranked by FTS5 relevance. |
 | `search_by_sector` | Search | Returns frameworks for a sector (`government`, `healthcare`, `energy`, etc.), optionally filtered by keyword. |
 | `get_control` | Lookup | Full record for a single control: description, implementation guidance, ISO mapping. |
 | `get_framework` | Lookup | Metadata for a framework: issuing body, version, control count, category breakdown. |
@@ -110,16 +139,9 @@ For full parameter documentation, return formats, and examples, see [TOOLS.md](T
 
 ## Data Sources & Freshness
 
-| Source | Last Refresh | Refresh Schedule |
-|--------|-------------|-----------------|
-| NCSC Cyber Essentials | 2026-03-12 | Annual |
-| NCSC CAF | 2026-03-12 | Annual |
-| NCSC Cloud Security Principles | 2026-03-12 | Annual |
-| NCSC 10 Steps | 2026-03-12 | Annual |
-| NHS DSPT | 2026-03-12 | Annual |
-| NCSC Board Toolkit | 2026-03-12 | Annual |
+All 28 sources were last refreshed on 2026-03-12. Sources with annual refresh schedules are next due 2027-03-12. Sources on a 5-year cycle (NIS Regulations, DCB0129, DCB0160, Def Stan 05-138) are next due 2031-03-12.
 
-To check freshness at runtime, call `check_data_freshness`. Full source provenance and licenses: [sources.yml](sources.yml).
+To check freshness at runtime, call `check_data_freshness`. Full source provenance and licenses: [sources.yml](sources.yml). Full freshness schedule: [COVERAGE.md](COVERAGE.md#data-freshness-schedule).
 
 ---
 
@@ -216,13 +238,6 @@ npm run coverage:verify  # Gate 6: coverage consistency
 
 **Data licenses by source:**
 
-| Source | License |
-|--------|---------|
-| NCSC Cyber Essentials | Open Government Licence v3.0 |
-| NCSC CAF | Open Government Licence v3.0 |
-| NCSC Cloud Security Principles | Open Government Licence v3.0 |
-| NCSC 10 Steps | Open Government Licence v3.0 |
-| NHS DSPT | Open Government Licence v3.0 |
-| NCSC Board Toolkit | Open Government Licence v3.0 |
+All 28 sources are published under the **Open Government Licence v3.0** by UK government bodies (NCSC, GDS, Cabinet Office, DSIT, OFCOM, NHS Digital, PRA, FCA, MOD). Free to use with attribution.
 
 All data is extracted from publicly available UK government publications. Zero AI-generated content in the database. See [sources.yml](sources.yml) for complete provenance.

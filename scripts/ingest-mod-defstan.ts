@@ -1,0 +1,146 @@
+// scripts/ingest-mod-defstan.ts
+// Def Stan 05-138 — Cyber Security for Defence Suppliers
+// Source: https://www.gov.uk/government/publications/defence-standard-05-138
+// Version: Issue 3 (2024)
+
+import { writeFileSync, mkdirSync } from 'node:fs';
+import { join, dirname } from 'node:path';
+import { fileURLToPath } from 'node:url';
+
+const __dirname = dirname(fileURLToPath(import.meta.url));
+const OUTPUT_DIR = join(__dirname, '..', 'data', 'extracted');
+mkdirSync(OUTPUT_DIR, { recursive: true });
+
+const data = {
+  framework: {
+    id: 'mod-defstan',
+    name: 'Def Stan 05-138 Cyber Security for Defence Suppliers',
+    name_nl: 'Def Stan 05-138 Cyber Security for Defence Suppliers',
+    issuing_body: 'Ministry of Defence (MOD)',
+    version: 'Issue 3',
+    effective_date: '2024-01-01',
+    scope: 'Mandatory cyber security requirements for all MOD suppliers handling defence information. Applies across the defence supply chain with tiered requirements based on information sensitivity.',
+    scope_sectors: ['defence'],
+    structure_description: 'Tiered requirements (Level 1 Baseline through Level 5 Enhanced+) covering access control, cryptography, network security, incident management, and supply chain security for defence contractors',
+    source_url: 'https://www.gov.uk/government/publications/defence-standard-05-138',
+    license: 'Open Government Licence v3.0',
+    language: 'en',
+  },
+  controls: [
+    {
+      control_number: '1',
+      title: 'Achieve Cyber Essentials Plus certification',
+      title_nl: 'Achieve Cyber Essentials Plus certification',
+      description: 'Defence suppliers must achieve and maintain Cyber Essentials Plus certification as a minimum baseline. This is mandatory for all MOD contracts involving the handling of MOD information.',
+      description_nl: 'Defence suppliers must achieve and maintain Cyber Essentials Plus certification as a minimum baseline. This is mandatory for all MOD contracts involving the handling of MOD information.',
+      category: 'Baseline Requirements',
+      subcategory: 'Certification',
+      level: 'Level 1',
+      iso_mapping: 'A.12.6.1',
+      implementation_guidance: 'Achieve Cyber Essentials Plus certification from an accredited assessor. Maintain certification through annual renewal. Address any findings from the CE+ assessment.',
+      verification_guidance: 'Verify current Cyber Essentials Plus certificate. Check expiry date and renewal schedule.',
+      source_url: 'https://www.gov.uk/government/publications/defence-standard-05-138',
+    },
+    {
+      control_number: '2',
+      title: 'Implement access controls for MOD information',
+      title_nl: 'Implement access controls for MOD information',
+      description: 'Access to MOD information must be restricted to authorised individuals with a need to know. Implement role-based access controls, multi-factor authentication, and privileged access management for systems handling MOD data.',
+      description_nl: 'Access to MOD information must be restricted to authorised individuals with a need to know. Implement role-based access controls, multi-factor authentication, and privileged access management for systems handling MOD data.',
+      category: 'Access Control',
+      subcategory: 'MOD information access',
+      level: 'Level 2',
+      iso_mapping: 'A.9.2.1',
+      implementation_guidance: 'Apply need-to-know access controls. Implement MFA for all access to MOD information. Use separate admin accounts. Log all access to MOD data.',
+      verification_guidance: 'Review access controls for MOD information. Verify MFA enforcement. Audit access logs.',
+      source_url: 'https://www.gov.uk/government/publications/defence-standard-05-138',
+    },
+    {
+      control_number: '3',
+      title: 'Encrypt MOD information at rest and in transit',
+      title_nl: 'Encrypt MOD information at rest and in transit',
+      description: 'MOD information must be encrypted at rest and in transit using approved cryptographic standards. For OFFICIAL-SENSITIVE information, use NCSC-approved products or commercial encryption meeting defined standards.',
+      description_nl: 'MOD information must be encrypted at rest and in transit using approved cryptographic standards. For OFFICIAL-SENSITIVE information, use NCSC-approved products or commercial encryption meeting defined standards.',
+      category: 'Cryptography',
+      subcategory: 'Data encryption',
+      level: 'Level 2',
+      iso_mapping: 'A.10.1.1',
+      implementation_guidance: 'Encrypt all MOD data at rest using AES-256 or equivalent. Use TLS 1.2+ for data in transit. Use NCSC-approved solutions for classified information. Manage encryption keys securely.',
+      verification_guidance: 'Verify encryption implementation. Check key management practices. Confirm approved products for classified data.',
+      source_url: 'https://www.gov.uk/government/publications/defence-standard-05-138',
+    },
+    {
+      control_number: '4',
+      title: 'Secure network architecture for MOD work',
+      title_nl: 'Secure network architecture for MOD work',
+      description: 'Networks handling MOD information must be separated from general corporate networks. Implement network segmentation, monitoring, and boundary controls appropriate to the classification of information handled.',
+      description_nl: 'Networks handling MOD information must be separated from general corporate networks. Implement network segmentation, monitoring, and boundary controls appropriate to the classification of information handled.',
+      category: 'Network Security',
+      subcategory: 'Network segmentation',
+      level: 'Level 3',
+      iso_mapping: 'A.13.1.3',
+      implementation_guidance: 'Segment networks handling MOD information. Implement boundary firewalls and monitoring. Restrict data flows between MOD and corporate networks. Apply content inspection at boundaries.',
+      verification_guidance: 'Review network architecture. Verify segmentation. Test boundary controls. Check monitoring coverage.',
+      source_url: 'https://www.gov.uk/government/publications/defence-standard-05-138',
+    },
+    {
+      control_number: '5',
+      title: 'Report security incidents to MOD',
+      title_nl: 'Report security incidents to MOD',
+      description: 'Security incidents involving MOD information must be reported to the MOD within specified timeframes. Confirmed breaches of MOD data must be reported immediately. The supplier must cooperate with MOD incident investigation.',
+      description_nl: 'Security incidents involving MOD information must be reported to the MOD within specified timeframes. Confirmed breaches of MOD data must be reported immediately. The supplier must cooperate with MOD incident investigation.',
+      category: 'Incident Management',
+      subcategory: 'MOD incident reporting',
+      level: 'Level 1',
+      iso_mapping: 'A.16.1.2',
+      implementation_guidance: 'Establish incident reporting to MOD. Report confirmed breaches immediately. Cooperate with MOD investigation. Preserve evidence for forensic analysis.',
+      verification_guidance: 'Verify MOD reporting channel. Review incident response procedures. Check evidence preservation capability.',
+      source_url: 'https://www.gov.uk/government/publications/defence-standard-05-138',
+    },
+    {
+      control_number: '6',
+      title: 'Supply chain flow-down of security requirements',
+      title_nl: 'Supply chain flow-down of security requirements',
+      description: 'Defence suppliers must flow down applicable Def Stan 05-138 requirements to their sub-contractors who will handle MOD information. Sub-contractors must meet the same security standard appropriate to the information they handle.',
+      description_nl: 'Defence suppliers must flow down applicable Def Stan 05-138 requirements to their sub-contractors who will handle MOD information. Sub-contractors must meet the same security standard appropriate to the information they handle.',
+      category: 'Supply Chain',
+      subcategory: 'Flow-down requirements',
+      level: 'Level 1',
+      iso_mapping: 'A.15.1.1',
+      implementation_guidance: 'Include Def Stan 05-138 requirements in sub-contracts. Verify sub-contractor Cyber Essentials Plus certification. Assess sub-contractor compliance before sharing MOD information.',
+      verification_guidance: 'Review sub-contracts for security clauses. Verify sub-contractor certifications. Check compliance assessment records.',
+      source_url: 'https://www.gov.uk/government/publications/defence-standard-05-138',
+    },
+    {
+      control_number: '7',
+      title: 'Security governance and risk management',
+      title_nl: 'Security governance and risk management',
+      description: 'Defence suppliers must maintain a security governance framework appropriate to the MOD information they handle. This includes designated security responsibility, risk assessment, and regular review of security measures.',
+      description_nl: 'Defence suppliers must maintain a security governance framework appropriate to the MOD information they handle. This includes designated security responsibility, risk assessment, and regular review of security measures.',
+      category: 'Governance',
+      subcategory: 'Security governance',
+      level: 'Level 2',
+      iso_mapping: '5.1',
+      implementation_guidance: 'Designate a senior person responsible for security. Conduct risk assessments for MOD work. Review security measures at least annually. Report security posture to MOD as required.',
+      verification_guidance: 'Verify security governance structure. Review risk assessments. Check annual review completion.',
+      source_url: 'https://www.gov.uk/government/publications/defence-standard-05-138',
+    },
+    {
+      control_number: '8',
+      title: 'Personnel security for MOD work',
+      title_nl: 'Personnel security for MOD work',
+      description: 'Staff with access to MOD information must be appropriately vetted. Vetting levels must match the classification of information accessed. The supplier must maintain records of personnel clearances and access authorisations.',
+      description_nl: 'Staff with access to MOD information must be appropriately vetted. Vetting levels must match the classification of information accessed. The supplier must maintain records of personnel clearances and access authorisations.',
+      category: 'Personnel Security',
+      subcategory: 'Vetting and clearance',
+      level: 'Level 2',
+      iso_mapping: 'A.7.1.1',
+      implementation_guidance: 'Ensure staff are vetted to the level required for the MOD information they access. Maintain clearance records. Apply the need-to-know principle. Remove access when clearances expire or staff leave.',
+      verification_guidance: 'Audit personnel clearance records. Verify clearance levels match access. Check leaver process for clearance revocation.',
+      source_url: 'https://www.gov.uk/government/publications/defence-standard-05-138',
+    },
+  ],
+};
+
+writeFileSync(join(OUTPUT_DIR, 'mod-defstan.json'), JSON.stringify(data, null, 2));
+console.log(`Wrote ${data.controls.length} controls for ${data.framework.id}`);

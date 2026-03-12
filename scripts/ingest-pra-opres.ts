@@ -1,0 +1,146 @@
+// scripts/ingest-pra-opres.ts
+// PRA SS1/21 Operational Resilience — Prudential Regulation Authority requirements
+// Source: https://www.bankofengland.co.uk/prudential-regulation/publication/2021/march/operational-resilience-ss
+// Version: 2021 (in force March 2022)
+
+import { writeFileSync, mkdirSync } from 'node:fs';
+import { join, dirname } from 'node:path';
+import { fileURLToPath } from 'node:url';
+
+const __dirname = dirname(fileURLToPath(import.meta.url));
+const OUTPUT_DIR = join(__dirname, '..', 'data', 'extracted');
+mkdirSync(OUTPUT_DIR, { recursive: true });
+
+const data = {
+  framework: {
+    id: 'pra-opres',
+    name: 'PRA Operational Resilience (SS1/21)',
+    name_nl: 'PRA Operational Resilience (SS1/21)',
+    issuing_body: 'Prudential Regulation Authority (PRA) / Bank of England',
+    version: 'SS1/21',
+    effective_date: '2022-03-31',
+    scope: 'Requirements for PRA-regulated firms (banks, building societies, insurers) to identify important business services, set impact tolerances, and ensure they can remain within tolerances during severe but plausible disruptions.',
+    scope_sectors: ['finance'],
+    structure_description: 'Requirements covering identification of important business services, setting impact tolerances, scenario testing, and self-assessment for financial services operational resilience',
+    source_url: 'https://www.bankofengland.co.uk/prudential-regulation/publication/2021/march/operational-resilience-ss',
+    license: 'Open Government Licence v3.0',
+    language: 'en',
+  },
+  controls: [
+    {
+      control_number: '1',
+      title: 'Identify important business services',
+      title_nl: 'Identify important business services',
+      description: 'Firms must identify their important business services — services whose disruption could cause intolerable harm to consumers, market integrity, the safety and soundness of the firm, or financial stability.',
+      description_nl: 'Firms must identify their important business services — services whose disruption could cause intolerable harm to consumers, market integrity, the safety and soundness of the firm, or financial stability.',
+      category: 'Service Identification',
+      subcategory: 'Important business services',
+      level: null,
+      iso_mapping: 'A.8.1.1',
+      implementation_guidance: 'Map all business services. Assess each for potential harm if disrupted. Consider harm to consumers, market integrity, firm safety, and financial stability. Document the rationale for classification decisions.',
+      verification_guidance: 'Review important business service register. Verify classification rationale. Check completeness of service mapping.',
+      source_url: 'https://www.bankofengland.co.uk/prudential-regulation/publication/2021/march/operational-resilience-ss',
+    },
+    {
+      control_number: '2',
+      title: 'Set impact tolerances',
+      title_nl: 'Set impact tolerances',
+      description: 'Firms must set impact tolerances for each important business service, defining the maximum tolerable level of disruption. Impact tolerances must be expressed in terms of time and any other relevant metrics.',
+      description_nl: 'Firms must set impact tolerances for each important business service, defining the maximum tolerable level of disruption. Impact tolerances must be expressed in terms of time and any other relevant metrics.',
+      category: 'Impact Tolerances',
+      subcategory: 'Tolerance setting',
+      level: null,
+      iso_mapping: 'A.17.1.1',
+      implementation_guidance: 'Define maximum tolerable disruption for each important business service. Set tolerances in time and other relevant metrics. Consider the worst point in the business cycle. Obtain board approval for tolerances.',
+      verification_guidance: 'Review impact tolerances. Verify board approval. Check tolerances reflect worst-case timing.',
+      source_url: 'https://www.bankofengland.co.uk/prudential-regulation/publication/2021/march/operational-resilience-ss',
+    },
+    {
+      control_number: '3',
+      title: 'Map important business services',
+      title_nl: 'Map important business services',
+      description: 'Firms must map the people, processes, technology, facilities, and information that support each important business service. Mapping must identify vulnerabilities and enable understanding of dependencies including third-party dependencies.',
+      description_nl: 'Firms must map the people, processes, technology, facilities, and information that support each important business service. Mapping must identify vulnerabilities and enable understanding of dependencies including third-party dependencies.',
+      category: 'Service Mapping',
+      subcategory: 'Dependency mapping',
+      level: null,
+      iso_mapping: 'A.8.1.1',
+      implementation_guidance: 'Map all components supporting each important business service. Include people, processes, technology, facilities, and third parties. Identify single points of failure and critical dependencies.',
+      verification_guidance: 'Review service mapping. Verify dependency identification. Check for single points of failure.',
+      source_url: 'https://www.bankofengland.co.uk/prudential-regulation/publication/2021/march/operational-resilience-ss',
+    },
+    {
+      control_number: '4',
+      title: 'Scenario testing',
+      title_nl: 'Scenario testing',
+      description: 'Firms must carry out scenario testing to assess their ability to remain within impact tolerances for each important business service. Testing must use severe but plausible scenarios and be conducted at least annually.',
+      description_nl: 'Firms must carry out scenario testing to assess their ability to remain within impact tolerances for each important business service. Testing must use severe but plausible scenarios and be conducted at least annually.',
+      category: 'Testing',
+      subcategory: 'Scenario testing',
+      level: null,
+      iso_mapping: 'A.17.1.3',
+      implementation_guidance: 'Design severe but plausible disruption scenarios for each important business service. Test the ability to remain within impact tolerances. Include cyber attack scenarios. Test at least annually.',
+      verification_guidance: 'Review scenario test results. Verify annual testing completion. Check that cyber scenarios are included.',
+      source_url: 'https://www.bankofengland.co.uk/prudential-regulation/publication/2021/march/operational-resilience-ss',
+    },
+    {
+      control_number: '5',
+      title: 'Invest to remain within impact tolerances',
+      title_nl: 'Invest to remain within impact tolerances',
+      description: 'Where scenario testing reveals that the firm cannot remain within impact tolerances, the firm must invest in improving its operational resilience to close identified gaps. Firms had a transition period until March 2025.',
+      description_nl: 'Where scenario testing reveals that the firm cannot remain within impact tolerances, the firm must invest in improving its operational resilience to close identified gaps. Firms had a transition period until March 2025.',
+      category: 'Remediation',
+      subcategory: 'Investment planning',
+      level: null,
+      iso_mapping: 'A.17.1.1',
+      implementation_guidance: 'Identify gaps between current resilience and impact tolerances. Develop remediation plans with prioritised investments. Track progress against the remediation plan.',
+      verification_guidance: 'Review gap analysis. Verify remediation plans and progress. Check compliance with transition deadline.',
+      source_url: 'https://www.bankofengland.co.uk/prudential-regulation/publication/2021/march/operational-resilience-ss',
+    },
+    {
+      control_number: '6',
+      title: 'Board responsibility for operational resilience',
+      title_nl: 'Board responsibility for operational resilience',
+      description: 'The board bears ultimate responsibility for operational resilience. The board must approve important business services, impact tolerances, and the firm self-assessment. A Senior Management Function holder must be accountable.',
+      description_nl: 'The board bears ultimate responsibility for operational resilience. The board must approve important business services, impact tolerances, and the firm self-assessment. A Senior Management Function holder must be accountable.',
+      category: 'Governance',
+      subcategory: 'Board oversight',
+      level: null,
+      iso_mapping: '5.1',
+      implementation_guidance: 'Assign a Senior Management Function holder accountability for operational resilience. Present important business services and impact tolerances to the board for approval. Report self-assessment results to the board.',
+      verification_guidance: 'Verify SMF accountability assignment. Check board approval records. Review self-assessment reporting.',
+      source_url: 'https://www.bankofengland.co.uk/prudential-regulation/publication/2021/march/operational-resilience-ss',
+    },
+    {
+      control_number: '7',
+      title: 'Self-assessment',
+      title_nl: 'Self-assessment',
+      description: 'Firms must produce a self-assessment documenting their important business services, impact tolerances, mapping, and scenario testing results. The self-assessment must be approved by the board and made available to the PRA on request.',
+      description_nl: 'Firms must produce a self-assessment documenting their important business services, impact tolerances, mapping, and scenario testing results. The self-assessment must be approved by the board and made available to the PRA on request.',
+      category: 'Governance',
+      subcategory: 'Self-assessment',
+      level: null,
+      iso_mapping: '9.2',
+      implementation_guidance: 'Produce a self-assessment covering all operational resilience requirements. Update at least annually. Obtain board approval. Store for PRA inspection.',
+      verification_guidance: 'Review self-assessment document. Verify board approval. Check currency.',
+      source_url: 'https://www.bankofengland.co.uk/prudential-regulation/publication/2021/march/operational-resilience-ss',
+    },
+    {
+      control_number: '8',
+      title: 'Third-party dependency management',
+      title_nl: 'Third-party dependency management',
+      description: 'Firms must identify and manage third-party dependencies that could affect their ability to remain within impact tolerances. This includes cloud providers, outsourced service providers, and critical technology vendors.',
+      description_nl: 'Firms must identify and manage third-party dependencies that could affect their ability to remain within impact tolerances. This includes cloud providers, outsourced service providers, and critical technology vendors.',
+      category: 'Third Party Management',
+      subcategory: 'Dependency management',
+      level: null,
+      iso_mapping: 'A.15.1.1',
+      implementation_guidance: 'Map third-party dependencies for each important business service. Include cloud providers and outsourced services. Assess concentration risk. Ensure contractual resilience requirements.',
+      verification_guidance: 'Review third-party dependency maps. Verify concentration risk assessment. Check contractual requirements.',
+      source_url: 'https://www.bankofengland.co.uk/prudential-regulation/publication/2021/march/operational-resilience-ss',
+    },
+  ],
+};
+
+writeFileSync(join(OUTPUT_DIR, 'pra-opres.json'), JSON.stringify(data, null, 2));
+console.log(`Wrote ${data.controls.length} controls for ${data.framework.id}`);

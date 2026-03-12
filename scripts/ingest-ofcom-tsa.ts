@@ -1,0 +1,146 @@
+// scripts/ingest-ofcom-tsa.ts
+// OFCOM Telecoms Security Requirements — Telecommunications Security Act 2021
+// Source: https://www.ofcom.org.uk/phones-and-broadband/network-security
+// Version: 2022
+
+import { writeFileSync, mkdirSync } from 'node:fs';
+import { join, dirname } from 'node:path';
+import { fileURLToPath } from 'node:url';
+
+const __dirname = dirname(fileURLToPath(import.meta.url));
+const OUTPUT_DIR = join(__dirname, '..', 'data', 'extracted');
+mkdirSync(OUTPUT_DIR, { recursive: true });
+
+const data = {
+  framework: {
+    id: 'ofcom-tsa',
+    name: 'OFCOM Telecoms Security Code of Practice',
+    name_nl: 'OFCOM Telecoms Security Code of Practice',
+    issuing_body: 'Office of Communications (OFCOM)',
+    version: '2022',
+    effective_date: '2022-10-01',
+    scope: 'Security requirements for UK public telecoms providers under the Telecommunications (Security) Act 2021. Covers network architecture, monitoring, supply chain, and incident management for telecommunications networks.',
+    scope_sectors: ['telecoms'],
+    structure_description: 'Requirements grouped by security measure type: network architecture, monitoring and analysis, supply chain, access control, data protection, and incident response for telecoms operators',
+    source_url: 'https://www.ofcom.org.uk/phones-and-broadband/network-security',
+    license: 'Open Government Licence v3.0',
+    language: 'en',
+  },
+  controls: [
+    {
+      control_number: '1',
+      title: 'Protect network architecture',
+      title_nl: 'Protect network architecture',
+      description: 'Telecoms providers must design and maintain their network architecture to protect against compromise. This includes network segmentation, separation of management planes, and reduction of the attack surface.',
+      description_nl: 'Telecoms providers must design and maintain their network architecture to protect against compromise. This includes network segmentation, separation of management planes, and reduction of the attack surface.',
+      category: 'Network Architecture',
+      subcategory: 'Architecture security',
+      level: null,
+      iso_mapping: 'A.13.1.1',
+      implementation_guidance: 'Segment networks by function and security level. Separate management and control planes from user traffic. Minimise the network attack surface. Implement defence in depth.',
+      verification_guidance: 'Review network architecture documentation. Verify segmentation implementation. Assess attack surface.',
+      source_url: 'https://www.ofcom.org.uk/phones-and-broadband/network-security',
+    },
+    {
+      control_number: '2',
+      title: 'Protect the management plane',
+      title_nl: 'Protect the management plane',
+      description: 'Protect the management interfaces and systems used to operate the network. Management traffic must be isolated from user traffic. Access to management systems must use strong authentication and be restricted to authorised personnel.',
+      description_nl: 'Protect the management interfaces and systems used to operate the network. Management traffic must be isolated from user traffic. Access to management systems must use strong authentication and be restricted to authorised personnel.',
+      category: 'Network Architecture',
+      subcategory: 'Management plane',
+      level: null,
+      iso_mapping: 'A.9.4.1',
+      implementation_guidance: 'Isolate management traffic on dedicated networks. Enforce MFA for management access. Restrict management access to authorised IP ranges. Log all management actions.',
+      verification_guidance: 'Verify management plane isolation. Test management access controls. Review management action logs.',
+      source_url: 'https://www.ofcom.org.uk/phones-and-broadband/network-security',
+    },
+    {
+      control_number: '3',
+      title: 'Monitor and analyse network security',
+      title_nl: 'Monitor and analyse network security',
+      description: 'Implement security monitoring across the telecoms network to detect threats, anomalous behaviour, and policy violations. Monitoring must cover signalling, control, and management planes.',
+      description_nl: 'Implement security monitoring across the telecoms network to detect threats, anomalous behaviour, and policy violations. Monitoring must cover signalling, control, and management planes.',
+      category: 'Monitoring',
+      subcategory: 'Network monitoring',
+      level: null,
+      iso_mapping: 'A.12.4.1',
+      implementation_guidance: 'Deploy monitoring across all network planes. Implement detection rules for telecoms-specific attacks (SS7, Diameter, GTP abuse). Correlate events across network elements. Maintain a SOC capability.',
+      verification_guidance: 'Review monitoring coverage. Verify telecoms-specific detection rules. Check SOC capability.',
+      source_url: 'https://www.ofcom.org.uk/phones-and-broadband/network-security',
+    },
+    {
+      control_number: '4',
+      title: 'Manage supply chain security',
+      title_nl: 'Manage supply chain security',
+      description: 'Manage the security risks from the supply chain, including equipment vendors, software providers, and managed service providers. Assess the risk of each supplier relationship and apply proportionate controls.',
+      description_nl: 'Manage the security risks from the supply chain, including equipment vendors, software providers, and managed service providers. Assess the risk of each supplier relationship and apply proportionate controls.',
+      category: 'Supply Chain',
+      subcategory: 'Vendor risk management',
+      level: null,
+      iso_mapping: 'A.15.1.1',
+      implementation_guidance: 'Maintain a supplier risk register. Apply vendor-specific controls based on risk tier. Limit vendor access to required network segments. Monitor vendor activity.',
+      verification_guidance: 'Review supplier risk register. Verify vendor access restrictions. Check vendor activity monitoring.',
+      source_url: 'https://www.ofcom.org.uk/phones-and-broadband/network-security',
+    },
+    {
+      control_number: '5',
+      title: 'Control access to network functions',
+      title_nl: 'Control access to network functions',
+      description: 'Implement access controls for all network functions, including physical access to network equipment, logical access to network management systems, and API access to network functions.',
+      description_nl: 'Implement access controls for all network functions, including physical access to network equipment, logical access to network management systems, and API access to network functions.',
+      category: 'Access Control',
+      subcategory: 'Network access control',
+      level: null,
+      iso_mapping: 'A.9.2.1',
+      implementation_guidance: 'Implement role-based access for network functions. Use MFA for all administrative access. Apply least privilege. Audit access regularly. Control API access with authentication and rate limiting.',
+      verification_guidance: 'Review access control policies. Verify MFA enforcement. Audit access logs.',
+      source_url: 'https://www.ofcom.org.uk/phones-and-broadband/network-security',
+    },
+    {
+      control_number: '6',
+      title: 'Protect data processed by the network',
+      title_nl: 'Protect data processed by the network',
+      description: 'Protect the confidentiality and integrity of data processed by the telecoms network, including customer communications data, signalling data, and network configuration data.',
+      description_nl: 'Protect the confidentiality and integrity of data processed by the telecoms network, including customer communications data, signalling data, and network configuration data.',
+      category: 'Data Protection',
+      subcategory: 'Data confidentiality',
+      level: null,
+      iso_mapping: 'A.8.2.3',
+      implementation_guidance: 'Encrypt sensitive data in transit and at rest. Protect signalling data from interception. Implement data loss prevention for customer data. Classify data by sensitivity.',
+      verification_guidance: 'Verify encryption implementation. Test data protection controls. Review data classification.',
+      source_url: 'https://www.ofcom.org.uk/phones-and-broadband/network-security',
+    },
+    {
+      control_number: '7',
+      title: 'Security incident management for telecoms',
+      title_nl: 'Security incident management for telecoms',
+      description: 'Maintain the capability to detect, respond to, and recover from security incidents affecting the telecoms network. Report significant incidents to OFCOM and NCSC as required by the Telecommunications Security Act.',
+      description_nl: 'Maintain the capability to detect, respond to, and recover from security incidents affecting the telecoms network. Report significant incidents to OFCOM and NCSC as required by the Telecommunications Security Act.',
+      category: 'Incident Management',
+      subcategory: 'Telecoms incident response',
+      level: null,
+      iso_mapping: 'A.16.1.1',
+      implementation_guidance: 'Develop telecoms-specific incident response plans. Establish reporting to OFCOM and NCSC. Train staff on telecoms incident scenarios. Test plans through exercises.',
+      verification_guidance: 'Review incident response plans. Verify OFCOM reporting channel. Check exercise records.',
+      source_url: 'https://www.ofcom.org.uk/phones-and-broadband/network-security',
+    },
+    {
+      control_number: '8',
+      title: 'Patch and update network equipment',
+      title_nl: 'Patch and update network equipment',
+      description: 'Maintain all network equipment with current firmware and software patches. Implement a vulnerability management process for telecoms network elements. Remove unsupported equipment from the network.',
+      description_nl: 'Maintain all network equipment with current firmware and software patches. Implement a vulnerability management process for telecoms network elements. Remove unsupported equipment from the network.',
+      category: 'Network Architecture',
+      subcategory: 'Patch management',
+      level: null,
+      iso_mapping: 'A.12.6.1',
+      implementation_guidance: 'Maintain an inventory of all network equipment and firmware versions. Apply security patches according to risk-based timelines. Plan for end-of-life equipment replacement.',
+      verification_guidance: 'Audit equipment firmware versions. Verify patch compliance. Check for end-of-life equipment.',
+      source_url: 'https://www.ofcom.org.uk/phones-and-broadband/network-security',
+    },
+  ],
+};
+
+writeFileSync(join(OUTPUT_DIR, 'ofcom-tsa.json'), JSON.stringify(data, null, 2));
+console.log(`Wrote ${data.controls.length} controls for ${data.framework.id}`);

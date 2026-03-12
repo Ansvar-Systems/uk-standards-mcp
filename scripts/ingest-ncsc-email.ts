@@ -1,0 +1,146 @@
+// scripts/ingest-ncsc-email.ts
+// NCSC Email Security and Anti-Spoofing — DMARC, DKIM, SPF guidance
+// Source: https://www.ncsc.gov.uk/collection/email-security-and-anti-spoofing
+// Version: 2024
+
+import { writeFileSync, mkdirSync } from 'node:fs';
+import { join, dirname } from 'node:path';
+import { fileURLToPath } from 'node:url';
+
+const __dirname = dirname(fileURLToPath(import.meta.url));
+const OUTPUT_DIR = join(__dirname, '..', 'data', 'extracted');
+mkdirSync(OUTPUT_DIR, { recursive: true });
+
+const data = {
+  framework: {
+    id: 'ncsc-email',
+    name: 'NCSC Email Security and Anti-Spoofing',
+    name_nl: 'NCSC Email Security and Anti-Spoofing',
+    issuing_body: 'National Cyber Security Centre (NCSC-UK)',
+    version: '2024',
+    effective_date: '2024-01-01',
+    scope: 'Guidance on implementing email authentication protocols (SPF, DKIM, DMARC) and anti-spoofing measures to protect organisations from email-based attacks',
+    scope_sectors: ['government', 'all'],
+    structure_description: 'Controls covering SPF, DKIM, DMARC implementation, email gateway security, and anti-phishing measures',
+    source_url: 'https://www.ncsc.gov.uk/collection/email-security-and-anti-spoofing',
+    license: 'Open Government Licence v3.0',
+    language: 'en',
+  },
+  controls: [
+    {
+      control_number: '1',
+      title: 'Implement SPF (Sender Policy Framework)',
+      title_nl: 'Implement SPF (Sender Policy Framework)',
+      description: 'Publish SPF records for all domains that send email, including subdomains. SPF tells receiving servers which IP addresses are authorised to send email for your domain. Use "-all" (hard fail) to reject unauthorised senders.',
+      description_nl: 'Publish SPF records for all domains that send email, including subdomains. SPF tells receiving servers which IP addresses are authorised to send email for your domain. Use "-all" (hard fail) to reject unauthorised senders.',
+      category: 'Email Authentication',
+      subcategory: 'SPF',
+      level: null,
+      iso_mapping: 'A.13.2.1',
+      implementation_guidance: 'Create SPF TXT records listing all legitimate sending sources. Start with "~all" (soft fail) during testing, move to "-all" (hard fail) when confident. Include third-party email services (marketing platforms, helpdesk tools). Keep SPF lookups under the 10 DNS lookup limit.',
+      verification_guidance: 'Check SPF records with DNS lookup tools. Verify all legitimate sending sources are included. Confirm "-all" mechanism is used in production.',
+      source_url: 'https://www.ncsc.gov.uk/collection/email-security-and-anti-spoofing/using-spf',
+    },
+    {
+      control_number: '2',
+      title: 'Implement DKIM (DomainKeys Identified Mail)',
+      title_nl: 'Implement DKIM (DomainKeys Identified Mail)',
+      description: 'Configure DKIM signing for all outbound email. DKIM adds a digital signature to email headers, allowing receiving servers to verify the email has not been altered in transit and was sent by an authorised system.',
+      description_nl: 'Configure DKIM signing for all outbound email. DKIM adds a digital signature to email headers, allowing receiving servers to verify the email has not been altered in transit and was sent by an authorised system.',
+      category: 'Email Authentication',
+      subcategory: 'DKIM',
+      level: null,
+      iso_mapping: 'A.13.2.1',
+      implementation_guidance: 'Generate DKIM key pairs (2048-bit RSA minimum). Publish public keys in DNS. Configure mail servers and third-party services to sign outbound email. Rotate keys annually.',
+      verification_guidance: 'Send test emails and verify DKIM signatures pass. Check key length meets minimum requirements. Verify all sending sources sign with DKIM.',
+      source_url: 'https://www.ncsc.gov.uk/collection/email-security-and-anti-spoofing/using-dkim',
+    },
+    {
+      control_number: '3',
+      title: 'Implement DMARC (Domain-based Message Authentication, Reporting and Conformance)',
+      title_nl: 'Implement DMARC (Domain-based Message Authentication, Reporting and Conformance)',
+      description: 'Publish a DMARC policy for all domains. DMARC builds on SPF and DKIM to specify what receiving servers should do with unauthenticated email (none, quarantine, or reject) and provides reporting to help identify spoofing attempts.',
+      description_nl: 'Publish a DMARC policy for all domains. DMARC builds on SPF and DKIM to specify what receiving servers should do with unauthenticated email (none, quarantine, or reject) and provides reporting to help identify spoofing attempts.',
+      category: 'Email Authentication',
+      subcategory: 'DMARC',
+      level: null,
+      iso_mapping: 'A.13.2.1',
+      implementation_guidance: 'Start with p=none to collect reports. Analyse DMARC reports to identify legitimate and illegitimate senders. Progress to p=quarantine, then p=reject. Set rua tag to receive aggregate reports. UK government domains must reach p=reject.',
+      verification_guidance: 'Check DMARC record in DNS. Verify policy is set to "reject" (or at minimum "quarantine" during rollout). Review DMARC aggregate reports for authentication failures.',
+      source_url: 'https://www.ncsc.gov.uk/collection/email-security-and-anti-spoofing/using-dmarc',
+    },
+    {
+      control_number: '3.1',
+      title: 'DMARC reporting configured and monitored',
+      title_nl: 'DMARC reporting configured and monitored',
+      description: 'DMARC aggregate reports (rua) and forensic reports (ruf) must be configured and actively monitored. Reports reveal who is sending email using your domain and whether authentication passes or fails.',
+      description_nl: 'DMARC aggregate reports (rua) and forensic reports (ruf) must be configured and actively monitored. Reports reveal who is sending email using your domain and whether authentication passes or fails.',
+      category: 'Email Authentication',
+      subcategory: 'DMARC reporting',
+      level: null,
+      iso_mapping: 'A.12.4.1',
+      implementation_guidance: 'Configure rua and ruf tags in DMARC records. Use a DMARC reporting service to parse XML reports. Review reports regularly to identify unauthorised senders or misconfigured legitimate senders.',
+      verification_guidance: 'Verify rua tag is present in DMARC record. Confirm reports are being received and reviewed.',
+      source_url: 'https://www.ncsc.gov.uk/collection/email-security-and-anti-spoofing/using-dmarc',
+    },
+    {
+      control_number: '4',
+      title: 'Protect non-sending domains',
+      title_nl: 'Protect non-sending domains',
+      description: 'Domains that do not send email must also have SPF, DKIM, and DMARC records configured to prevent their use in spoofing attacks. A "null" SPF record ("v=spf1 -all") and DMARC p=reject policy should be published.',
+      description_nl: 'Domains that do not send email must also have SPF, DKIM, and DMARC records configured to prevent their use in spoofing attacks. A "null" SPF record ("v=spf1 -all") and DMARC p=reject policy should be published.',
+      category: 'Email Authentication',
+      subcategory: 'Non-sending domains',
+      level: null,
+      iso_mapping: 'A.13.2.1',
+      implementation_guidance: 'For all non-sending domains, publish SPF "v=spf1 -all" and DMARC "v=DMARC1; p=reject". This prevents attackers from spoofing unused domains.',
+      verification_guidance: 'Inventory all owned domains. Verify non-sending domains have null SPF and reject DMARC policies.',
+      source_url: 'https://www.ncsc.gov.uk/collection/email-security-and-anti-spoofing/using-dmarc',
+    },
+    {
+      control_number: '5',
+      title: 'Implement TLS for email in transit',
+      title_nl: 'Implement TLS for email in transit',
+      description: 'Configure mail servers to use TLS (Transport Layer Security) for all email in transit. Implement MTA-STS (Mail Transfer Agent Strict Transport Security) to enforce TLS and prevent downgrade attacks.',
+      description_nl: 'Configure mail servers to use TLS (Transport Layer Security) for all email in transit. Implement MTA-STS (Mail Transfer Agent Strict Transport Security) to enforce TLS and prevent downgrade attacks.',
+      category: 'Email Transport Security',
+      subcategory: 'TLS',
+      level: null,
+      iso_mapping: 'A.13.1.1',
+      implementation_guidance: 'Enable opportunistic TLS on all mail servers. Publish MTA-STS policy to enforce TLS for inbound mail. Configure DANE (DNS-based Authentication of Named Entities) where supported. Use TLS-RPT for TLS failure reporting.',
+      verification_guidance: 'Test mail server TLS configuration. Verify MTA-STS policy is published. Check TLS reporting is configured.',
+      source_url: 'https://www.ncsc.gov.uk/collection/email-security-and-anti-spoofing/making-email-more-secure',
+    },
+    {
+      control_number: '6',
+      title: 'Anti-phishing controls on inbound email',
+      title_nl: 'Anti-phishing controls on inbound email',
+      description: 'Deploy anti-phishing controls on inbound email including link scanning, attachment sandboxing, impersonation detection, and banner warnings for external emails. These complement authentication controls by catching attacks from previously unknown domains.',
+      description_nl: 'Deploy anti-phishing controls on inbound email including link scanning, attachment sandboxing, impersonation detection, and banner warnings for external emails. These complement authentication controls by catching attacks from previously unknown domains.',
+      category: 'Inbound Protection',
+      subcategory: 'Anti-phishing',
+      level: null,
+      iso_mapping: 'A.12.2.1',
+      implementation_guidance: 'Deploy email gateway with link scanning and attachment sandboxing. Enable impersonation detection for executive accounts. Add external email banners. Block known malicious file types.',
+      verification_guidance: 'Test phishing detection with simulated attacks. Verify external email banners are displayed. Check attachment sandboxing functionality.',
+      source_url: 'https://www.ncsc.gov.uk/collection/email-security-and-anti-spoofing/making-email-more-secure',
+    },
+    {
+      control_number: '7',
+      title: 'User reporting mechanism for suspicious emails',
+      title_nl: 'User reporting mechanism for suspicious emails',
+      description: 'Provide users with a simple mechanism to report suspicious emails (such as a report button in the email client). Reported emails should be triaged by the security team and used to improve defences.',
+      description_nl: 'Provide users with a simple mechanism to report suspicious emails (such as a report button in the email client). Reported emails should be triaged by the security team and used to improve defences.',
+      category: 'Inbound Protection',
+      subcategory: 'User reporting',
+      level: null,
+      iso_mapping: 'A.16.1.2',
+      implementation_guidance: 'Deploy a report-phishing button in email clients. Establish a triage process for reported emails. Provide feedback to reporters. Use reports to update block lists and detection rules.',
+      verification_guidance: 'Verify reporting mechanism is available to all users. Check triage process and response times.',
+      source_url: 'https://www.ncsc.gov.uk/collection/email-security-and-anti-spoofing/making-email-more-secure',
+    },
+  ],
+};
+
+writeFileSync(join(OUTPUT_DIR, 'ncsc-email.json'), JSON.stringify(data, null, 2));
+console.log(`Wrote ${data.controls.length} controls for ${data.framework.id}`);

@@ -1,0 +1,105 @@
+{
+  "framework": {
+    "id": "ncsc-byod",
+    "name": "NCSC BYOD Guidance",
+    "name_nl": "NCSC BYOD Guidance",
+    "issuing_body": "National Cyber Security Centre (NCSC-UK)",
+    "version": "2024",
+    "effective_date": "2024-01-01",
+    "scope": "Guidance for organisations considering allowing staff to use their own devices (BYOD) for work, covering policy, technical controls, and risk management",
+    "scope_sectors": [
+      "government",
+      "all"
+    ],
+    "structure_description": "Controls covering BYOD policy decisions, technical architecture, data separation, device requirements, and acceptable use",
+    "source_url": "https://www.ncsc.gov.uk/collection/device-security-guidance/bring-your-own-device",
+    "license": "Open Government Licence v3.0",
+    "language": "en"
+  },
+  "controls": [
+    {
+      "control_number": "1",
+      "title": "Assess whether BYOD is appropriate",
+      "title_nl": "Assess whether BYOD is appropriate",
+      "description": "Before implementing BYOD, assess whether the benefits outweigh the risks for your organisation. Consider the sensitivity of data accessed, regulatory requirements, and the additional management overhead.",
+      "description_nl": "Before implementing BYOD, assess whether the benefits outweigh the risks for your organisation. Consider the sensitivity of data accessed, regulatory requirements, and the additional management overhead.",
+      "category": "Strategy",
+      "subcategory": "Risk assessment",
+      "level": null,
+      "iso_mapping": "6.1",
+      "implementation_guidance": "Conduct a risk assessment specific to BYOD. Consider data classification levels that can be accessed. Review regulatory constraints. Assess management capability and costs.",
+      "verification_guidance": "Review BYOD risk assessment. Verify data access boundaries are defined.",
+      "source_url": "https://www.ncsc.gov.uk/collection/device-security-guidance/bring-your-own-device"
+    },
+    {
+      "control_number": "2",
+      "title": "Implement a BYOD policy",
+      "title_nl": "Implement a BYOD policy",
+      "description": "Define a clear BYOD policy covering which devices are permitted, what data can be accessed, security requirements, acceptable use, and the organisation right to manage or wipe corporate data on personal devices.",
+      "description_nl": "Define a clear BYOD policy covering which devices are permitted, what data can be accessed, security requirements, acceptable use, and the organisation right to manage or wipe corporate data on personal devices.",
+      "category": "Policy",
+      "subcategory": "BYOD policy",
+      "level": null,
+      "iso_mapping": "A.6.2.1",
+      "implementation_guidance": "Draft a BYOD policy covering supported devices, minimum OS versions, security requirements, data access permissions, and remote wipe consent. Require policy acceptance before BYOD enrolment.",
+      "verification_guidance": "Review BYOD policy. Verify policy acceptance is recorded. Check that minimum requirements are enforced.",
+      "source_url": "https://www.ncsc.gov.uk/collection/device-security-guidance/bring-your-own-device"
+    },
+    {
+      "control_number": "3",
+      "title": "Separate corporate and personal data",
+      "title_nl": "Separate corporate and personal data",
+      "description": "Implement technical controls to separate corporate data from personal data on BYOD devices. Use containerisation, managed app configurations, or virtual desktop infrastructure to create a boundary between work and personal use.",
+      "description_nl": "Implement technical controls to separate corporate data from personal data on BYOD devices. Use containerisation, managed app configurations, or virtual desktop infrastructure to create a boundary between work and personal use.",
+      "category": "Technical Controls",
+      "subcategory": "Data separation",
+      "level": null,
+      "iso_mapping": "A.8.2.3",
+      "implementation_guidance": "Deploy MDM/MAM with containerisation (e.g., Android work profiles, iOS managed apps). Use DLP policies to prevent corporate data leaking to personal apps. Consider VDI for high-sensitivity access.",
+      "verification_guidance": "Verify data separation controls. Test data leakage between personal and corporate containers.",
+      "source_url": "https://www.ncsc.gov.uk/collection/device-security-guidance/bring-your-own-device"
+    },
+    {
+      "control_number": "4",
+      "title": "Enforce minimum device security standards",
+      "title_nl": "Enforce minimum device security standards",
+      "description": "Require BYOD devices to meet minimum security standards before accessing corporate resources: current OS version, device encryption enabled, screen lock configured, no jailbreak or root access detected.",
+      "description_nl": "Require BYOD devices to meet minimum security standards before accessing corporate resources: current OS version, device encryption enabled, screen lock configured, no jailbreak or root access detected.",
+      "category": "Technical Controls",
+      "subcategory": "Device compliance",
+      "level": null,
+      "iso_mapping": "A.6.2.1",
+      "implementation_guidance": "Define minimum device requirements (OS version, encryption, screen lock, integrity check). Enforce compliance through conditional access policies. Block non-compliant devices automatically.",
+      "verification_guidance": "Review device compliance policies. Test that non-compliant devices are blocked. Audit compliance rates.",
+      "source_url": "https://www.ncsc.gov.uk/collection/device-security-guidance/bring-your-own-device"
+    },
+    {
+      "control_number": "5",
+      "title": "Enable remote wipe of corporate data",
+      "title_nl": "Enable remote wipe of corporate data",
+      "description": "Maintain the ability to remotely wipe corporate data from BYOD devices when the device is lost, stolen, or the employee leaves the organisation. Selective wipe (corporate data only) is preferred over full device wipe.",
+      "description_nl": "Maintain the ability to remotely wipe corporate data from BYOD devices when the device is lost, stolen, or the employee leaves the organisation. Selective wipe (corporate data only) is preferred over full device wipe.",
+      "category": "Technical Controls",
+      "subcategory": "Remote wipe",
+      "level": null,
+      "iso_mapping": "A.6.2.1",
+      "implementation_guidance": "Configure selective remote wipe capability through MDM/MAM. Ensure corporate container can be wiped without affecting personal data. Test wipe procedures. Include wipe in the leaver process.",
+      "verification_guidance": "Test selective wipe functionality. Verify wipe is included in leaver process. Check wipe execution logs.",
+      "source_url": "https://www.ncsc.gov.uk/collection/device-security-guidance/bring-your-own-device"
+    },
+    {
+      "control_number": "6",
+      "title": "Use conditional access for BYOD",
+      "title_nl": "Use conditional access for BYOD",
+      "description": "Implement conditional access policies that evaluate device compliance, user identity, location, and risk signals before granting access to corporate resources from BYOD devices.",
+      "description_nl": "Implement conditional access policies that evaluate device compliance, user identity, location, and risk signals before granting access to corporate resources from BYOD devices.",
+      "category": "Technical Controls",
+      "subcategory": "Conditional access",
+      "level": null,
+      "iso_mapping": "A.9.4.1",
+      "implementation_guidance": "Deploy conditional access policies for BYOD. Require device compliance, MFA, and approved app usage. Block access from high-risk locations or devices. Implement step-up authentication for sensitive data.",
+      "verification_guidance": "Review conditional access policies. Test access scenarios from compliant and non-compliant devices.",
+      "source_url": "https://www.ncsc.gov.uk/collection/device-security-guidance/bring-your-own-device"
+    }
+  ]
+}
